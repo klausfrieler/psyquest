@@ -29,6 +29,7 @@
 #' If not \code{NULL}, this researcher's email address is displayed at the
 #' bottom of the screen so that online participants can ask for help.
 #'
+#' @param with_id (Boolean) Flag if ID should be entered
 #' @param validate_id (Character scalar or closure) Function for validating IDs or string "auto"
 #' for default validation which means ID should consist only of alphanumeric characters.
 #'
@@ -43,20 +44,22 @@ standalone <- function(label,
                        dict = psyquest::psyquest_dict,
                        admin_password = "conifer",
                        researcher_email = NULL,
+                       with_id = TRUE,
                        validate_id = "auto",
                        ...) {
   subscales <- sort(subscales)
   items <-
     get_items(label, subscales, short_version, configuration_filepath)
 
-  elts <- c(
-    psychTestR::new_timeline(
-      psychTestR::get_p_id(
-        prompt = psychTestR::i18n("ENTER_ID"),
-        placeholder = paste(psychTestR::i18n("E.G."), "10492817"),
-        button_text = psychTestR::i18n("CONTINUE"),
-        validate = validate_id
-      ),
+  elts <- psychTestR::join(
+    if(with_id)
+      psychTestR::new_timeline(
+        psychTestR::get_p_id(
+          prompt = psychTestR::i18n("ENTER_ID"),
+          placeholder = paste(psychTestR::i18n("E.G."), "10492817"),
+          button_text = psychTestR::i18n("CONTINUE"),
+          validate = validate_id
+        ),
       dict = dict
     ),
     # Call the questionnaire
@@ -82,7 +85,6 @@ standalone <- function(label,
         psyquest::psyquest_dict$translate(stringr::str_interp("T${label}_0000_PROMPT"), x)),
       psyquest::languages()
     ))
-
   shiny::addResourcePath("www_psyquest", system.file("www", package = "psyquest"))
   psychTestR::make_test(
     elts,
@@ -185,6 +187,85 @@ DEG_standalone <-
                languages = languages,
                subscales = subscales,
                ...)
+
+#' EWE Standalone
+#'
+#' This function launches a standalone testing session for the EWE questionnaire.
+#' EWE stands for 'Demographics'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param subscales (Character vector) The subscales to be included in the questionnaire.
+#' Possible subscales are "Best Shot", "Hearing Impairment", "Type of Hearing Impairment", "Gender", "Age", "Nationality", "Country Formative Years", "First Language", "Second Language", and "Handedness".S4methods
+#' If no subscales are provided all subscales for the questionnaire are selected.
+#'
+#' @param ... Further arguments to be passed to \code{\link{EWE_standalone}()}.
+#'
+#' @export
+EWE_standalone <-
+  function(languages = psyquest::languages(),
+           subscales = NULL,
+           ...)
+    standalone(label = "EWE",
+               languages = languages,
+               ...)
+
+#' FSS Standalone
+#'
+#' This function launches a standalone testing session for the FSS questionnaire.
+#' FSS stands for 'Theory of Intelligence'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param subscales (Character vector) The subscales to be included in the questionnaire.
+#' Possible subscales are \code{"Challenge-skill balance"}, \code{"Action-awareness merging"},
+#' \code{"Clear goals"}, \code{"Unambiguous feedback"}, \code{"Concentration on task at hand"},
+#' \code{"Paradox of control"}, \code{"Loss of self-consciousness"}, \code{"Transformation of time"},
+#' and \code{"Autotelic experience"}.
+#' @param ... Further arguments to be passed to \code{\link{FSS}()}.
+#'
+#' @export
+FSS_standalone <-
+  function(languages = psyquest::languages(),
+           subscales = NULL,
+           ...)
+    standalone(label = "FSS",
+               languages = languages,
+               subscales = subscales,
+               ...)
+
+#' FSR Standalone
+#'
+#' This function launches a standalone testing session for the FSS questionnaire.
+#' FSR stands for 'Theory of Intelligence'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#' @param subscales (Character vector) The subscales to be included in the questionnaire.
+#' Possible subscales are \code{"Absorption"}, \code{"Fluency of performance"}, \code{"Demands"},
+#' \code{"Skills"}, \code{"Demand Fit"}
+#' and \code{"Importance"}.
+#' If no subscales are provided all subscales are selected.
+#' @param ... Further arguments to be passed to \code{\link{FSR}()}.
+#'
+#' @export
+FSR_standalone <-
+  function(languages = psyquest::languages(),
+           subscales = NULL,
+           ...)
+    standalone(label = "FSR",
+               languages = languages,
+               subscales = subscales,
+               ...)
+
 #' GDS Standalone
 #'
 #' This function launches a standalone testing session for the GDS questionnaire.
@@ -285,6 +366,111 @@ GRT_standalone <- function(languages = psyquest::languages(), ...)
 HOP_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "HOP", languages = languages, ...)
+
+#' IMI Standalone
+#'
+#' This function launches a standalone testing session for the IMI questionnaire.
+#' IMI stands for 'Theory of Intelligence'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param subscales (Character vector) The subscales to be included in the questionnaire.
+#' Possible subscales are \code{"Goals Choice"}, and \code{"Theory of Inteligence"}.
+#' If no subscales are provided all subscales for the questionnaire are selected.
+#'
+#' @param ... Further arguments to be passed to \code{\link{IMI_standalone}()}.
+#'
+#' @export
+IMI_standalone <-
+  function(languages = psyquest::languages(),
+           subscales = NULL,
+           ...)
+    standalone(label = "IMI",
+               languages = languages,
+               subscales = subscales,
+               ...)
+#' JIC Standalone
+#'
+#' This function launches a standalone testing session for the JIC questionnaire.
+#' JIC stands for 'Theory of Intelligence'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param subscales (Character vector) The subscales to be included in the questionnaire.
+#' Possible subscales are \code{"General"}.
+#' If no subscales are provided all subscales for the questionnaire are selected.
+#'
+#' @param ... Further arguments to be passed to \code{\link{JIC_standalone}()}.
+#'
+#' @export
+JIC_standalone <-
+  function(languages = psyquest::languages(),
+           subscales = NULL,
+           ...)
+    standalone(label = "JIC",
+               languages = languages,
+               subscales = subscales,
+               ...)
+
+#' JIW Standalone
+#'
+#' This function launches a standalone testing session for the JIW questionnaire.
+#' JIW stands for 'Theory of Intelligence'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param subscales (Character vector) The subscales to be included in the questionnaire.
+#' Possible subscales are \code{"General"}, \code{"Talent"}, \code{"Enjoyment"}, \code{"Competition"}, \code{"Confidence"}
+#'  and \code{"Growth"}.
+#' If no subscales are provided all subscales for the questionnaire are selected.
+#'
+#' @param ... Further arguments to be passed to \code{\link{JIW_standalone}()}.
+#'
+#' @export
+JIW_standalone <-
+  function(languages = psyquest::languages(),
+           subscales = NULL,
+           ...)
+    standalone(label = "JIW",
+               languages = languages,
+               subscales = subscales,
+               ...)
+#' MES Standalone
+#'
+#' This function launches a standalone testing session for the MES questionnaire.
+#' MES stands for 'Theory of Intelligence'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param subscales (Character vector) The subscales to be included in the questionnaire.
+#' Possible subscales are \code{"General"}.
+#' If no subscales are provided all subscales for the questionnaire are selected.
+#'
+#' @param ... Further arguments to be passed to \code{\link{MES_standalone}()}.
+#'
+#' @export
+MES_standalone <-
+  function(languages = psyquest::languages(),
+           subscales = NULL,
+           ...)
+    standalone(label = "MES",
+               languages = languages,
+               subscales = subscales,
+               ...)
+
+
 
 #' MHE Standalone
 #'

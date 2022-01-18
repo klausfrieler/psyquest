@@ -10,6 +10,9 @@ NULL
 #' @importFrom dplyr "pull"
 NULL
 
+#' @importFrom dplyr "arrange"
+NULL
+
 #' @importFrom tibble "tibble"
 NULL
 
@@ -26,6 +29,9 @@ NULL
 NULL
 
 #' @importFrom purrr "map_dbl"
+NULL
+
+#' @importFrom purrr "map_chr"
 NULL
 
 #' @importFrom R.utils "insert"

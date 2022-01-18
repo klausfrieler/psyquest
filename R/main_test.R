@@ -29,6 +29,7 @@ scoring <- function(questionnaire_id, label, items, subscales = c(), short_versi
 
   psychTestR::code_block(function(state, ...) {
     results <- psychTestR::get_results(state = state, complete = FALSE)
+    #browser()
     scores_raw <- map(results, function(result) {
       result <- get(label, results)
       result <- as.numeric(gsub("[^0-9]", "", result))
@@ -64,6 +65,8 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
       postprocess_ccm(questionnaire_id, label, subscale, results, scores)
     } else if (questionnaire_id == "DEG") {
       postprocess_deg(label, subscale, results, scores)
+    } else if (questionnaire_id == "EWE") {
+      postprocess_ewe(label, subscale, results, scores)
     } else if (questionnaire_id == "GMS") {
       if (subscale == "Start Age" && scores == 19) {
         NA
@@ -93,7 +96,7 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
     } else {
       mean(scores)
     }
-
+    message(sprintf("Subscale: %s, value: %s", subscale, value))
     psychTestR::save_result(place = state,
                             label = subscale,
                             value = value)
@@ -102,10 +105,12 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
 
 main_test <- function(questionnaire_id, label, items, with_prompt_head = FALSE, short_version = FALSE, subscales = c(), offset = 1, arrange_vertically = TRUE, button_style = "") {
   elts <- c()
-  if (questionnaire_id != "GMS") {
+  if (questionnaire_id != "GMS" & offset != 0) {
     elts <- c(elts, psychTestR::new_timeline(
       psychTestR::one_button_page(
-        body = psychTestR::i18n(stringr::str_interp("T${questionnaire_id}_0001_PROMPT")),
+        body = shiny::div(
+          psychTestR::i18n(stringr::str_interp("T${questionnaire_id}_0001_PROMPT"), ),
+          style = "margin-left:20%;margin-right:20%;text-align:justify"),
         button_text = psychTestR::i18n("CONTINUE")
       ),
       dict = psyquest::psyquest_dict
@@ -115,8 +120,7 @@ main_test <- function(questionnaire_id, label, items, with_prompt_head = FALSE, 
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
   question_numbers <- as.numeric(gsub("[^0-9]", "", prompt_ids))
-
-  for (counter in seq_along(numeric(length(question_numbers)))) {
+  for (counter in 1:length(question_numbers)) {
     question_label <- sprintf("q%d", question_numbers[counter] - offset)
     item_bank_row <-
       items %>%
@@ -124,7 +128,16 @@ main_test <- function(questionnaire_id, label, items, with_prompt_head = FALSE, 
     num_of_options <- strsplit(item_bank_row$option_type, "-")[[1]][1]
     choices <- sprintf("btn%d_text", 1:num_of_options)
     choice_ids <- sprintf("T%s_%04d_CHOICE%d", questionnaire_id, question_numbers[counter], 1:num_of_options)
-
+    bs <- button_style[1]
+    #item_bank_row$layout <- NA
+    #arrange_vertically = FALSE
+    #bs <- "max_width:100px"
+    if(!is.na(item_bank_row$layout)){
+      arrange_vertically <- item_bank_row$layout[1] == "vertical"
+      if(!arrange_vertically & length(button_style) >  0){
+        bs <- button_style[2]
+      }
+    }
     item_page <- psychTestR::new_timeline(
       psychTestR::NAFC_page(
         label = question_label,
@@ -136,7 +149,7 @@ main_test <- function(questionnaire_id, label, items, with_prompt_head = FALSE, 
         ),
         choices = choices,
         arrange_vertically = arrange_vertically,
-        button_style = button_style,
+        button_style = bs,
         labels = map(choice_ids, psychTestR::i18n)
       ),
       dict = psyquest::psyquest_dict
