@@ -159,6 +159,23 @@ BMR_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "BMR", languages = languages, ...)
 
+#' BTQ Standalone
+#'
+#' This function launches a standalone testing session for the BFT questionnaire.
+#' BFT stands for 'Bedtime Questionnaire'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_d"} (formal German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+BTQ_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "BTQ", languages = languages, ...)
+
 #' CCM Standalone
 #'
 #' This function launches a standalone testing session for the CCM questionnaire.
@@ -184,6 +201,23 @@ CCM_standalone <-
                languages = languages,
                subscales = subscales,
                ...)
+#' CMS Standalone
+#'
+#' This function launches a standalone testing session for the CMS questionnaire.
+#' CMS stands for 'Children  Musicality Questionnaire'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English),  \code{"de_f"} (German), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+CMS_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "CMS", languages = languages, ...)
+
 
 #' CMT Standalone
 #'

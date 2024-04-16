@@ -102,7 +102,9 @@ scoring <- function(questionnaire_id, label, items, subscales = c(), short_versi
     if(questionnaire_id == "CBQ" || questionnaire_id == "IBQ"){
       subscale_list[["Not Assessed"]] <- not_assessed
     }
-
+    if(questionnaire_id == "BTQ"){
+      names(results[["BTQ"]]) <- names(subscale_list)
+    }
     postprocess(questionnaire_id, label, subscale_list, short_version, state, results)
   })
 }
@@ -130,6 +132,8 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
       } else {
         mean(scores)
       }
+    } else if (questionnaire_id == "BTQ") {
+      postprocess_btq(questionnaire_id, subscale, results)
     } else if (questionnaire_id == "MHE") {
       postprocess_mhe(questionnaire_id, subscale_list[["General"]])
     } else if (questionnaire_id == "QHC") {

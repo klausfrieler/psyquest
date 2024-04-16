@@ -118,7 +118,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                     choices = sprintf("%d", 1:11),
                     labels = map(sprintf("TLLQ_0006_CHOICE%d", 1:11), psychTestR::i18n),
                     force_answer = TRUE,
-                    javascript = "checkboxes = $('input:checkbox'); checkboxes.slice(checkboxes.length - 1, checkboxes.length).click(function() { checkboxes.slice(0, checkboxes.length - 1).prop('checked', '') }); checkboxes.slice(0, checkboxes.length - 1).click(function() { checkboxes.slice(checkboxes.length - 1, checkboxes.length).prop('checked', '') });",
+                    #javascript = "checkboxes = $('input:checkbox'); checkboxes.slice(checkboxes.length - 1, checkboxes.length).click(function() { checkboxes.slice(0, checkboxes.length - 1).prop('checked', '') }); checkboxes.slice(0, checkboxes.length - 1).click(function() { checkboxes.slice(checkboxes.length - 1, checkboxes.length).prop('checked', '') });",
                     trigger_button_text = psychTestR::i18n("CONTINUE"),
                     failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
     dict = psyquest::psyquest_dict
@@ -138,29 +138,39 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
 
 
   if ("TLLQ_0008" %in% prompt_ids) {
-    elts <- psychTestR::join(elts, psychTestR::new_timeline(
-      NAFC_page("q8",
-                prompt = psychTestR::i18n("TLLQ_0008_PROMPT"),
-                choices = sprintf("%d", 1:3),
-                labels = map(sprintf("TLLQ_0008_CHOICE%d", 1:3), psychTestR::i18n),
-                button_style = "min-width: 125px;"
-      ),
-      dict = psyquest::psyquest_dict
-    ))
+    elts <- psychTestR::join(elts,
+                             psychTestR::new_timeline(
+                               NAFC_page("q8",
+                                         prompt = psychTestR::i18n("TLLQ_0008_PROMPT"),
+                                         choices = sprintf("%d", 1:3),
+                                         labels = map(sprintf("TLLQ_0008_CHOICE%d", 1:3), psychTestR::i18n),
+                                         on_complete = function(answer, state, ...){
+                                           set_local("lullabies_child", answer, state)
+                                         },
+                                         button_style = "min-width: 125px;"
+                               ),
+                               dict = psyquest::psyquest_dict
+                             )
+    )
   }
 
   if ("TLLQ_0009" %in% prompt_ids) {
-    elts <- psychTestR::join(elts, psychTestR::new_timeline(
-      checkbox_page("q9",
-                    prompt =  psychTestR::i18n("TLLQ_0009_PROMPT"),
-                    choices = sprintf("%d", 1:6),
-                    labels = map(sprintf("TLLQ_0009_CHOICE%d", 1:6), psychTestR::i18n),
-                    force_answer = TRUE,
-                    javascript = "checkboxes = $('input:checkbox'); checkboxes.slice(checkboxes.length - 1, checkboxes.length).click(function() { checkboxes.slice(0, checkboxes.length - 1).prop('checked', '') }); checkboxes.slice(0, checkboxes.length - 1).click(function() { checkboxes.slice(checkboxes.length - 1, checkboxes.length).prop('checked', '') });",
-                    trigger_button_text = psychTestR::i18n("CONTINUE"),
-                    failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-    dict = psyquest::psyquest_dict
-    ))
+    elts <- psychTestR::join(elts,
+                             psychTestR::conditional(test = function(state, ...) {
+                               psychTestR::get_local("lullabies_child", state) == "1"
+                             },
+                             logic =
+                               psychTestR::new_timeline(
+                                 checkbox_page("q9",
+                                               prompt =  psychTestR::i18n("TLLQ_0009_PROMPT"),
+                                               choices = sprintf("%d", 1:6),
+                                               labels = map(sprintf("TLLQ_0009_CHOICE%d", 1:6), psychTestR::i18n),
+                                               force_answer = TRUE,
+                                               javascript = "checkboxes = $('input:checkbox'); checkboxes.slice(checkboxes.length - 1, checkboxes.length).click(function() { checkboxes.slice(0, checkboxes.length - 1).prop('checked', '') }); checkboxes.slice(0, checkboxes.length - 1).click(function() { checkboxes.slice(checkboxes.length - 1, checkboxes.length).prop('checked', '') });",
+                                               trigger_button_text = psychTestR::i18n("CONTINUE"),
+                                               failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
+                                 dict = psyquest::psyquest_dict
+                               )))
   }
 
   if ("TLLQ_0010" %in% prompt_ids) {
@@ -190,11 +200,15 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
 
   if ("TLLQ_0012" %in% prompt_ids) {
     elts <- psychTestR::join(elts, psychTestR::new_timeline(
-      text_input_page("q12",
-                      prompt = shiny::p(psychTestR::i18n("TLLQ_0012_PROMPT"), style = standard_style),
-                      button_text = psychTestR::i18n("CONTINUE"),
-                      validate = NULL
-      ),
+      labelled_text_input_page("q12",
+                               prompt = psychTestR::i18n("TLLQ_0012_PROMPT"),
+                               one_line = F,
+                               save_answer = T,
+                               validate = NULL,
+                               button_text = psychTestR::i18n("CONTINUE"),
+                               width = "300px",
+                               height = "200px"),
+
       dict = psyquest::psyquest_dict
     ))
   }
