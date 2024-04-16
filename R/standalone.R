@@ -1,7 +1,7 @@
 #' Standalone
 #'
 #' This function launches a standalone testing session for a questionnaire with the specified label.
-#' Valid labels are 'BMR', 'CBQ', CCM', 'DAC', 'DEG', 'GDS', 'GMS', 'GRT', 'HOP', 'HUM', 'HSP', 'IBQ', MES', 'MES', MHE', 'PAC', 'PMS'
+#' Valid labels are 'BMR', 'BFT'. 'CBQ', CCM', 'DAC', 'DEG', 'GDS', 'GMS', 'GRT', 'HOP', 'HUM', 'HSP', 'IBQ', MES', 'MES', 'MHE', 'MHI', 'MHP', 'PAC', 'PMS'
 #' 'SDQ', 'SEM', 'SES','SMP', 'SOS', 'SWL', TOI', 'TOM', and 'TPI'.
 #' This can be used for data collection, either in the laboratory or online.
 #'
@@ -124,6 +124,23 @@ standalone <- function(label,
 CBQ_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "CBQ", languages = languages, ...)
+
+#' BFT Standalone
+#'
+#' This function launches a standalone testing session for the BFT questionnaire.
+#' BFT stands for 'Big Five Inventory 10-items'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_d"} (formal German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+BFT_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "BFT", languages = languages, ...)
 
 #' BMR Standalone
 #'
@@ -657,6 +674,40 @@ MET_standalone <-
 MHE_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "MHE", languages = languages, ...)
+
+#' MHI Standalone
+#'
+#' This function launches a standalone testing session for the MHI questionnaire.
+#' MHI stands for 'Musical Home Environment for Infants'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English),  \code{"de"} (German),  and \code{"de_f"} (formal German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+MHI_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "MHI", languages = languages, ...)
+
+#' MHP Standalone
+#'
+#' This function launches a standalone testing session for the MHI questionnaire.
+#' MHI stands for 'Musical Home Environment for Preschoolers'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English),  \code{"de"} (German),  and \code{"de_f"} (formal German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+MHP_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "MHP", languages = languages, ...)
 
 #' MPA Standalone
 #'
