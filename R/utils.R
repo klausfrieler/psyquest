@@ -121,9 +121,10 @@ get_items2 <- function(label, subscales = c(), short_version = FALSE, configurat
     return(filtered_items[order(filtered_items$prompt_id), ])
   } else if (label == "PHT") {
     if (short_version) {
-      question_ids <- c(1, 4, 7, 11, 15, 20, 23, 27, 29, 32, 37, 39, 41, 46, 48, 53, 55)
+      #old question_ids <- c(1, 4, 7, 11, 15, 20, 23, 27, 29, 32, 37, 39, 41, 46, 48, 53, 55)
+      question_ids <- c(2, 7, 8, 13, 16, 18, 20, 23, 27, 31, 32, 37, 38, 43, 44, 48, 50)
     } else {
-      question_ids <- c(1:57)
+      question_ids <- c(1:51)
     }
     pht_subscales <- get_subscales("PHT")
     if(length(subscales) > 0){
@@ -134,7 +135,7 @@ get_items2 <- function(label, subscales = c(), short_version = FALSE, configurat
     question_ids <- intersect(question_ids, subscale_ids$item_id)
     stopifnot(length(question_ids) > 0)
     filtered_items <- as.data.frame(items[map(question_ids, function(x) grep(sprintf("TPHT_%04d", x), items$prompt_id)) %>% unlist() %>% unique(), ])
-
+    browser()
     return(filtered_items[order(filtered_items$prompt_id), ])
   } else if (label == "SMP") {
     if (short_version) {
@@ -264,13 +265,16 @@ get_items <- function(q_id, subscales = c(), short_version = FALSE, configuratio
       question_ids <- c(3, 5, 6, 10, 11, 17, 18, 22) - 1
     }
     else if (q_id == "PHT") {
-      question_ids <- c(1, 4, 7, 11, 15, 20, 23, 27, 29, 32, 37, 39, 41, 46, 48, 53, 55)
+      #question_ids <- c(1, 4, 7, 11, 15, 20, 23, 27, 29, 32, 37, 39, 41, 46, 48, 53, 55)
+      #question_ids <- c(1, 6, 7, 12, 15, 17, 19, 22, 26, 30, 31, 36, 37, 42, 43, 47, 49)
+      question_ids <- psyquest_item_bank %>% filter(q_id == "PHT") %>% filter(short_version) %>% pull(item_id)
+
     }
     else if (q_id == "SMP") {
       question_ids <- c(2, 4, 5, 6, 7, 8, 9, 11, 13, 17, 19, 21, 22, 23) - 1
     }
     else if (q_id == "FSS") {
-      question_ids <- psyquest::psyquest_item_bank %>% filter(short_version) %>% pull(item_id)
+      question_ids <- psyquest::psyquest_item_bank %>% filter(q_id == "FSS", short_version) %>% pull(item_id)
     }
     else if (q_id == "GMS") {
       question_ids <- c(1, 4, 19, 27, 30, 36, 3, 10, 20, 26, 39, 2, 12, 16, 22, 35, 6, 13, 14, 24, 28, 29, 32, 8, 11, 23, 33, 40, 41)
