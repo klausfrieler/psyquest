@@ -259,9 +259,9 @@ GMS_jp <-
     "TGMS_0032_CHOICE13", "テューバ",
     "TGMS_0032_CHOICE14", "サクソフォン",
     "TGMS_0032_CHOICE15", "ホルン", # CAUTION ! horn
-    "TGMS_0032_CHOICE16", "ヴァイオリン", # encoding?
+    "TGMS_0032_CHOICE16", "ヴァイオリン",
     "TGMS_0032_CHOICE17", "チェロ",
-    "TGMS_0032_CHOICE18", "ヴィオラ", # encoding?
+    "TGMS_0032_CHOICE18", "ヴィオラ",
     "TGMS_0032_CHOICE19", "コントラバス",
     "TGMS_0032_CHOICE2", "声楽",
     "TGMS_0032_CHOICE20", "ハープ",
