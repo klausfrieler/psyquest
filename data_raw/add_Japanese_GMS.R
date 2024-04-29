@@ -1,4 +1,4 @@
-# Add Gold-MSI-J (Japanese version)
+# Add Gold-MSI-J (Japanese version) --------------------------------------------
 GMS_old_dict <- readr::read_csv2("data_raw/dicts/GMS_dict.csv")
 GMS_jp <-
   tibble::tribble(
@@ -365,3 +365,46 @@ readr::write_csv2(
   GMS_dict,
   file = "data_raw/dicts/GMS_dict.csv"
 )
+
+# Japanese for general dict ----------------------------------------------------
+old_general_dict <-
+  readr::read_csv2("data_raw/dicts/general_dict.csv")
+general_dict_ja <-
+  tibble::tribble(
+    ~key, ~ja,
+    "CONTINUE",
+    "RESULTS_SAVED",
+    "CLOSE_BROWSER",
+    "PAGE_HEADER", "{{test_length}}問中{{num_question}}問", # deepl
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
+    "NONE",
+    "YEAR",
+    "MONTH",
+    "OTHER_NATIONALITY",
+    "OTHER_COUNTRY",
+    "OTHER_LANGUAGE",
+    "CHOOSE_ANSWER",
+    "CHOOSE_AT_LEAST_ONE_ANSWER",
+    "ANSWER_NEEDED",
+    "SELECT_MONTH",
+    "SELECT_YEAR",
+    "E.G.",
+    "SELECT_MONTH_AND_YEAR",
+    "SELECT_YEAR",
+    "ENTER_ID",
+    "ENTER_ID_FORMAL",
+    "PROBLEMS_INFO_1",
+    "PROBLEMS_INFO_2",
+    "PROBLEMS_INFO_3",
+  )
