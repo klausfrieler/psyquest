@@ -1,5 +1,5 @@
 # Add Gold-MSI-J (Japanese version)
-GMS_dict <- readr::read_csv2("data_raw/dicts/GMS_dict.csv")
+GMS_old_dict <- readr::read_csv2("data_raw/dicts/GMS_dict.csv")
 GMS_jp <-
   tibble::tribble(
     ~key, ~ja,
@@ -354,3 +354,14 @@ GMS_jp <-
     "TGMS_0041_CHOICE2", "いいえ",
     "TGMS_0041_PROMPT", "あなたには絶対音感がありますか？絶対音感とは、音を聴いた時に他の音と比べなくてもその音の名前がわかる能力です。例えば誰かがピアノで弾いた音がファのシャープだとわかる、など。"
   )
+
+GMS_dict <-
+  dplyr::left_join(
+    GMS_old_dict,
+    GMS_jp,
+    by = "key"
+  )
+readr::write_csv2(
+  GMS_dict,
+  file = "data_raw/dicts/GMS_dict.csv"
+)
