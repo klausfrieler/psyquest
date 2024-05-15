@@ -195,7 +195,7 @@ get_items2 <- function(label, subscales = c(), short_version = FALSE, configurat
 
   items[order(items$prompt_id), ]
 }
-get_GMS_item_ids_from_config <- function(configuration_file_path){
+get_GMS_item_ids_from_config <- function(configuration_filepath){
   subscale_ids <-
     (
       read.csv(
@@ -233,7 +233,6 @@ get_items <- function(q_id, subscales = c(), short_version = FALSE, configuratio
   if(nrow(items) == 0){
     stop(sprintf("Invalid questionnaire: %s", q_id))
   }
-
   #configuration file takes highest precedence
   if (q_id == "GMS" && !is.null(configuration_filepath)) {
     question_ids <- get_GMS_item_ids_from_config(configuration_filepath)
