@@ -31,7 +31,7 @@ GMS <- function(label = "GMS",
   stopifnot(purrr::is_scalar_character(label))
 
   questionnaire_id <- "GMS"
-  browser()
+
   main_test_gms(
     questionnaire_id = questionnaire_id,
     label = label,
