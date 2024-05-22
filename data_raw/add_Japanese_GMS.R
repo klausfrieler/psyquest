@@ -372,7 +372,7 @@ old_general_dict <-
 general_dict_ja <-
   tibble::tribble(
     ~key, ~ja,
-    "CONTINUE", "",
+    "CONTINUE", "次へ",
     "RESULTS_SAVED", "",
     "CLOSE_BROWSER", "",
     "PAGE_HEADER", "{{test_length}}問中{{num_question}}問", # deepl
