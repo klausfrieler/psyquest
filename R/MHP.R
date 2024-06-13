@@ -23,7 +23,7 @@ MHP <- function(label = "MHP",
     questionnaire_id = questionnaire_id,
     label = label,
     items = get_items(questionnaire_id),
-    offset = 0,
+    offset = 1L,
     arrange_vertically = TRUE,
     button_style = "min-width: 290px"
   )
