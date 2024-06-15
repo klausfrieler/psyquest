@@ -35,4 +35,6 @@ psyquest_dict_raw <-
   })
 
 psyquest_dict <- psychTestR::i18n_dict$new(psyquest_dict_raw)
+psyquest_dict_df <- psyquest_dict %>% as.data.frame()
 usethis::use_data(psyquest_dict, overwrite = TRUE)
+usethis::use_data(psyquest_dict_df, overwrite = TRUE)

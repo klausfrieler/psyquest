@@ -53,7 +53,7 @@ get_subscales <- function(questionnaire_id){
 #'get_item_info
 #'
 #'Retrieves for info for items from questionnaire identified by questionnaire_id and subscale
-#' @param questionaired_id (three letter string) Questionnaire ID.
+#' @param questionnaire_id (three letter string) Questionnaire ID.
 #' @param subscales (character vector)  of subscale names
 #' @param language (character)  language of item texts
 #'
@@ -71,6 +71,36 @@ get_item_info <- function(questionnaire_id, subscales, language = "en"){
     filter((key %in% sprintf("T%s_%s_PROMPT", questionnaire_id, items$prompt_id))) %>%
     select(!!language)
   items %>% dplyr::bind_cols(prompts)
+}
+
+#'get_item_choices
+#'
+#'Retrieves choice labels for an items from questionnaire identified by questionnaire_id and subscale
+#' @param questionnaire_id (three letter string) Questionnaire ID.
+#' @param item_id (integer or character) number of item in a questionnaire
+#' @param language (character)  language of item texts
+#'
+#' @export
+get_item_choices <- function(questionnaire_id, item_id, language = "en"){
+  #browser()
+  sstr <- sprintf("%s_%04d_CHOICE", questionnaire_id, as.integer(str_remove(as.character(item_id), "q")))
+  choices <- psyquest_dict_df %>% filter(str_detect(key, sstr))
+  if(length(language) == 1){
+    if(nrow(choices) > 0){
+      choices %>% pull(!!sym(language))
+    }
+    else{
+      character(0)
+    }
+  }
+  else{
+    if(nrow(choices) > 0){
+      choices %>% select(key, all_of(language))
+    }
+    else{
+      choices
+    }
+  }
 }
 
 
@@ -226,7 +256,6 @@ get_GMS_item_ids_from_config <- function(configuration_filepath){
 #'
 #' @export
 get_items <- function(q_id, subscales = c(), short_version = FALSE, configuration_filepath = NULL) {
-
   items <- psyquest::psyquest_item_bank %>%
     filter(q_id == !!q_id)
 
@@ -241,7 +270,7 @@ get_items <- function(q_id, subscales = c(), short_version = FALSE, configuratio
 
   if(length(subscales) > 0 ){
     has_subscale <- sapply(items$subscales, function(x){
-      any(sapply(subscales, function(y) ifelse(nzchar(y), str_detect(x, y), TRUE)))
+      any(sapply(subscales, function(y) ifelse(nzchar(y), x == y, TRUE)))
     }, USE.NAMES = F)
 
     items <- items[has_subscale,]
