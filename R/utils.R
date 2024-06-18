@@ -46,7 +46,7 @@ get_tests <- function(){
 get_subscales <- function(questionnaire_id){
   psyquest::psyquest_item_bank %>%
     filter(stringr::str_detect(q_id, !!questionnaire_id)) %>%
-    pull(subscales) %>% unique()
+    pull(subscales) %>% str_split(";") %>% unlist() %>% unique()
 
 }
 
@@ -258,7 +258,6 @@ get_GMS_item_ids_from_config <- function(configuration_filepath){
 get_items <- function(q_id, subscales = c(), short_version = FALSE, configuration_filepath = NULL) {
   items <- psyquest::psyquest_item_bank %>%
     filter(q_id == !!q_id)
-
   if(nrow(items) == 0){
     stop(sprintf("Invalid questionnaire: %s", q_id))
   }
@@ -269,8 +268,10 @@ get_items <- function(q_id, subscales = c(), short_version = FALSE, configuratio
   }
 
   if(length(subscales) > 0 ){
-    has_subscale <- sapply(items$subscales, function(x){
-      any(sapply(subscales, function(y) ifelse(nzchar(y), x == y, TRUE)))
+    has_subscale <- sapply(items$subscales %>% str_split(";"), function(x){
+      any(sapply(subscales, function(y){
+        ifelse(nzchar(y), y %in% x, TRUE)
+      } ))
     }, USE.NAMES = F)
 
     items <- items[has_subscale,]
