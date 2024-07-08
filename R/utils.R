@@ -84,7 +84,8 @@ get_item_info <- function(questionnaire_id, subscales, language = "en"){
 get_item_choices <- function(questionnaire_id, item_id, language = "en"){
   #browser()
   sstr <- sprintf("%s_%04d_CHOICE", questionnaire_id, as.integer(str_remove(as.character(item_id), "q")))
-  choices <- psyquest_dict_df %>% filter(str_detect(key, sstr))
+  choices <- psyquest::psyquest_dict_df %>%
+    filter(str_detect(key, sstr))
   if(length(language) == 1){
     if(nrow(choices) > 0){
       choices %>% pull(!!sym(language))
