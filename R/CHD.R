@@ -35,7 +35,7 @@ CHD <- function(label = "CHD",
                       subscales = subscales),
     subscales = subscales,
     language = language,
-    offset = 1,
+    offset = 2,
     arrange_vertically = TRUE
   )
 }
@@ -49,23 +49,30 @@ main_test_chd <- function(questionnaire_id,
                           arrange_vertically = TRUE) {
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
-  elts <- c()
+  elts <- psychTestR::new_timeline(
+      psychTestR::one_button_page(
+      body = shiny::div(
+        psychTestR::i18n("TCHD_0001_PROMPT"),
+        style = "margin-left:20%;margin-right:20%;text-align:justify;margin-bottom:2em"),
+      button_text = psychTestR::i18n("CONTINUE")
+    ),
+    dict = psyquest::psyquest_dict)
 
-  if ("TCHD_0001" %in% prompt_ids) {
+  if ("TCHD_0002" %in% prompt_ids) {
     child_ages <- as.character(as.integer(floor(12*c(0, .25, .5, .75, 1:10))))
     child_ages[length(child_ages)] <- "120+"
 
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
       dropdown_page("q1",
-                    psychTestR::i18n("TCHD_0001_PROMPT"),
-                    setNames(child_ages, map(sprintf("TCHD_0001_CHOICE%d", 1:14), psychTestR::i18n)),
+                    psychTestR::i18n("TCHD_0002_PROMPT"),
+                    setNames(child_ages, map(sprintf("TCHD_0002_CHOICE%d", 1:14), psychTestR::i18n)),
                     next_button_text = psychTestR::i18n("CONTINUE"))
     ),
     dict = psyquest::psyquest_dict
     ))
   }
 
-  if ("TCHD_0002" %in% prompt_ids) {
+  if ("TCHD_0003" %in% prompt_ids) {
     languages <- languages_def[["en2"]]
     if (language[1] == "de" || language[1] == "de_f") {
       languages <- languages_def[["de2"]]
@@ -82,7 +89,7 @@ main_test_chd <- function(questionnaire_id,
     language_codes <- language_codes_def[languages]
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
       dropdown_page("q2",
-                    psychTestR::i18n("TCHD_0002_PROMPT"),
+                    psychTestR::i18n("TCHD_0003_PROMPT"),
                     setNames(language_codes, map(languages, psychTestR::i18n)),
                     next_button_text = psychTestR::i18n("CONTINUE"))
     ),
@@ -90,11 +97,11 @@ main_test_chd <- function(questionnaire_id,
     ))
   }
 
-  if ("TCHD_0003" %in% prompt_ids) {
+  if ("TCHD_0004" %in% prompt_ids) {
     num_kids <- set_names(as.character(0:10), c(as.character(0:9), "10+"))
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
       dropdown_page("q3",
-                    psychTestR::i18n("TCHD_0003_PROMPT"),
+                    psychTestR::i18n("TCHD_0004_PROMPT"),
                     num_kids,
                     next_button_text = psychTestR::i18n("CONTINUE"),
                     max_width_pixels = 100)
@@ -104,12 +111,12 @@ main_test_chd <- function(questionnaire_id,
   }
 
 
-  if ("TCHD_0004" %in% prompt_ids) {
+  if ("TCHD_0005" %in% prompt_ids) {
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
       NAFC_page("q4",
-                psychTestR::i18n("TCHD_0004_PROMPT"),
+                psychTestR::i18n("TCHD_0005_PROMPT"),
                 sprintf("btn%d_text", 1:4),
-                labels = map(sprintf("TCHD_0004_CHOICE%d", 1:4), psychTestR::i18n),
+                labels = map(sprintf("TCHD_0005_CHOICE%d", 1:4), psychTestR::i18n),
                 button_style = "min-width: 188px"
                 )
       ),
@@ -118,26 +125,13 @@ main_test_chd <- function(questionnaire_id,
   }
 
 
-  if ("TCHD_0005" %in% prompt_ids) {
-    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
-      NAFC_page("q5",
-                psychTestR::i18n("TCHD_0005_PROMPT"),
-                sprintf("btn%d_text", 1:3),
-                labels = map(sprintf("TCHD_0005_CHOICE%d", 1:3), psychTestR::i18n),
-                button_style = "min-width: 300px;"
-                )
-      ),
-      dict = psyquest::psyquest_dict
-    ))
-  }
-
   if ("TCHD_0006" %in% prompt_ids) {
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
-      NAFC_page("q6",
+      NAFC_page("q5",
                 psychTestR::i18n("TCHD_0006_PROMPT"),
-                sprintf("btn%d_text", 1:4),
-                labels = map(sprintf("TCHD_0006_CHOICE%d", 1:4), psychTestR::i18n),
-                button_style = "min-width: 600px;"
+                sprintf("btn%d_text", 1:3),
+                labels = map(sprintf("TCHD_0006_CHOICE%d", 1:3), psychTestR::i18n),
+                button_style = "min-width: 300px;"
                 )
       ),
       dict = psyquest::psyquest_dict
@@ -146,10 +140,23 @@ main_test_chd <- function(questionnaire_id,
 
   if ("TCHD_0007" %in% prompt_ids) {
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
-      NAFC_page("q7",
+      NAFC_page("q6",
                 psychTestR::i18n("TCHD_0007_PROMPT"),
+                sprintf("btn%d_text", 1:4),
+                labels = map(sprintf("TCHD_0007_CHOICE%d", 1:4), psychTestR::i18n),
+                button_style = "min-width: 600px;"
+                )
+      ),
+      dict = psyquest::psyquest_dict
+    ))
+  }
+
+  if ("TCHD_0008" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q7",
+                psychTestR::i18n("TCHD_0008_PROMPT"),
                 sprintf("btn%d_text", 1:3),
-                labels = map(sprintf("TCHD_0007_CHOICE%d", 1:3), psychTestR::i18n),
+                labels = map(sprintf("TCHD_0008_CHOICE%d", 1:3), psychTestR::i18n),
                 button_style = "min-width: 500px;"
       )
     ),
@@ -157,12 +164,12 @@ main_test_chd <- function(questionnaire_id,
     ))
   }
 
-  if ("TCHD_0008" %in% prompt_ids) {
+  if ("TCHD_0009" %in% prompt_ids) {
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
       NAFC_page("q8",
-                psychTestR::i18n("TCHD_0008_PROMPT"),
+                psychTestR::i18n("TCHD_0009_PROMPT"),
                 sprintf("btn%d_text", 1:4),
-                labels = map(sprintf("TCHD_0008_CHOICE%d", 1:4), psychTestR::i18n),
+                labels = map(sprintf("TCHD_0009_CHOICE%d", 1:4), psychTestR::i18n),
                 button_style = "min-width: 200px;"
       )
     ),
