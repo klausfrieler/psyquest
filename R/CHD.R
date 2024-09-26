@@ -73,18 +73,18 @@ main_test_chd <- function(questionnaire_id,
   }
 
   if ("TCHD_0003" %in% prompt_ids) {
-    languages <- languages_def[["en2"]]
+    languages <- languages_def[["en1"]]
     if (language[1] == "de" || language[1] == "de_f") {
-      languages <- languages_def[["de2"]]
+      languages <- languages_def[["de1"]]
     }
     if (language[1] == "it") {
-      languages <- languages_def[["it2"]]
+      languages <- languages_def[["it1"]]
     }
     if (language[1] == "es") {
-      languages <- languages_def[["es2"]]
+      languages <- languages_def[["es1"]]
     }
     if (language[1] == "lv") {
-      languages <- languages_def[["lv2"]]
+      languages <- languages_def[["lv1"]]
     }
     language_codes <- language_codes_def[languages]
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
