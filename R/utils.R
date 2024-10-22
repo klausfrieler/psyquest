@@ -46,7 +46,7 @@ get_tests <- function(){
 get_subscales <- function(questionnaire_id){
   psyquest::psyquest_item_bank %>%
     filter(stringr::str_detect(q_id, !!questionnaire_id)) %>%
-    pull(subscales) %>% str_split(";") %>% unlist() %>% unique()
+    pull(subscales) %>% stringr::str_split(";") %>% unlist() %>% unique()
 
 }
 
@@ -83,9 +83,9 @@ get_item_info <- function(questionnaire_id, subscales, language = "en"){
 #' @export
 get_item_choices <- function(questionnaire_id, item_id, language = "en"){
   #browser()
-  sstr <- sprintf("%s_%04d_CHOICE", questionnaire_id, as.integer(str_remove(as.character(item_id), "q")))
+  sstr <- sprintf("%s_%04d_CHOICE", questionnaire_id, as.integer(stringr::str_remove(as.character(item_id), "q")))
   choices <- psyquest::psyquest_dict_df %>%
-    filter(str_detect(key, sstr))
+    filter(stringr::str_detect(key, sstr))
   if(length(language) == 1){
     if(nrow(choices) > 0){
       choices %>% pull(!!sym(language))
@@ -269,7 +269,7 @@ get_items <- function(q_id, subscales = c(), short_version = FALSE, configuratio
   }
 
   if(length(subscales) > 0 ){
-    has_subscale <- sapply(items$subscales %>% str_split(";"), function(x){
+    has_subscale <- sapply(items$subscales %>% stringr::str_split(";"), function(x){
       any(sapply(subscales, function(y){
         ifelse(nzchar(y), y %in% x, TRUE)
       } ))
