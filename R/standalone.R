@@ -201,6 +201,32 @@ CCM_standalone <-
                languages = languages,
                subscales = subscales,
                ...)
+#' CHD Standalone
+#'
+#' This function launches a standalone testing session for the CCM questionnaire.
+#' CHD stands for 'Children Demographics'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de", "de_f"} (German).
+#' The first language is selected by default.
+#'
+#' @param subscales (Character vector) The subscales to be included in the questionnaire.
+#' Possible subscales are \code{"General"}, and \code{"Extra"}.
+#' If no subscales are provided all subscales for the questionnaire are selected.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+CHD_standalone <-
+  function(languages = psyquest::languages(),
+           subscales = NULL,
+           ...)
+    standalone(label = "CHD",
+               languages = languages,
+               subscales = subscales,
+               ...)
+
 #' CMS Standalone
 #'
 #' This function launches a standalone testing session for the CMS questionnaire.

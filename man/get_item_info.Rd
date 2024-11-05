@@ -7,11 +7,11 @@
 get_item_info(questionnaire_id, subscales, language = "en")
 }
 \arguments{
+\item{questionnaire_id}{(three letter string) Questionnaire ID.}
+
 \item{subscales}{(character vector)  of subscale names}
 
 \item{language}{(character)  language of item texts}
-
-\item{questionaired_id}{(three letter string) Questionnaire ID.}
 }
 \description{
 Retrieves for info for items from questionnaire identified by questionnaire_id and subscale

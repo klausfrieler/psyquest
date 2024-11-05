@@ -23,7 +23,7 @@ MHI <- function(label = "MHI",
     questionnaire_id = questionnaire_id,
     label = label,
     items = get_items(questionnaire_id),
-    offset = 0,
+    offset = 1,
     arrange_vertically = TRUE,
     button_style = "min-width: 290px"
   )

@@ -15,8 +15,8 @@ TBTQ_0001_CHOICE12;Kuscheltier/-decke;Cuddly toy / blanket
 TBTQ_0001_CHOICE13;Schlaf-/Nachtlicht;Sleep/mood light 
 TBTQ_0001_CHOICE14;Sonstiges;Other 
 TBTQ_0001_PROMPT;Was gehört alles zum Schlafritual für Ihr Kind?;What goes into the bedtime ritual you create for your child? 
-TBTQ_0002_CHOICE1;Ich brauche es nicht zu unterstützen.;I don't need to help my child fall asleep. 
-TBTQ_0002_CHOICE2;Mit White Noise (z.B. Föhn, Abzugshaube etc.);Noise (e.g. hairdryer, extractor hood, vacuum cleaner) 
+TBTQ_0002_CHOICE1;Mein Kind schläft ohne Unterstützung ein;My child falls asleep without assistance 
+TBTQ_0002_CHOICE2;White Noise (z.B. Föhn, Abzugshaube etc.);Noise (e.g., hairdryer, extractor hood, vacuum cleaner) 
 TBTQ_0002_CHOICE3;Spazierengehen/Autofahren;Going for a walk/for a drive 
 TBTQ_0002_CHOICE4;Herumtragen;Carrying around 
 TBTQ_0002_CHOICE5;Vorsingen;Singing 
@@ -29,7 +29,7 @@ TBTQ_0002_CHOICE11;Wärmeflasche;Hot water bottle
 TBTQ_0002_CHOICE12;Kuscheltier/-decke;Cuddly toy/blanket 
 TBTQ_0002_CHOICE13;Schlaf-/Nachtlicht;Sleep/mood light 
 TBTQ_0002_CHOICE14;Sonstiges;Other 
-TBTQ_0002_PROMPT;Wie schläft Ihr Kind normalerweise ein?;How does your child usually fall asleep? 
+TBTQ_0002_PROMPT;Wobei schläft Ihr Kind normalerweise ein?;What does your child usually fall asleep to? 
 TBTQ_0003_CHOICE1;Ja;Yes
 TBTQ_0003_CHOICE2;Nein;No 
 TBTQ_0003_PROMPT;Singen Sie für Ihr Kind, um es beim Einschlafen zu unterstützen?;Do you sing for your child in order to help it fall asleep? 
@@ -52,4 +52,4 @@ TBTQ_0004_PROMPT;Wenn ja, was?;If yes, what?
 TBTQ_0005_PROMPT;Was ist ein Wiegenlied für Sie?;What is a lullaby to you? 
 TBTQ_0006_CHOICE1;Ja;Yes
 TBTQ_0006_CHOICE2;Nein;No
-TBTQ_0006_PROMPT;"Generell können Wiegenlieder als Lieder definiert werden, um Kinder zu beruhigen und ihnen das Einschlafen zu erleichtern. Sie kennen möglicherweise Johannes Brahm's Wiegenlied.  Nutzen Sie Wiegenlieder im gerade definierten Sinne, um Ihr Kind beim Einschlafen zu unterstützen?";"In general, lullabies can be defined as songs that are intended to calm children and make it easier for them to fall asleep. You may know Johannes Brahm's Lullaby. Do you use lullabies in the sense just defined to help your children fall asleep?"
+TBTQ_0006_PROMPT;"Generell können Wiegenlieder als Lieder definiert werden, um Kinder zu beruhigen und ihnen das Einschlafen zu erleichtern. Sie kennen möglicherweise Johannes Brahms' Wiegenlied.  Nutzen Sie Wiegenlieder im gerade definierten Sinne, um Ihr Kind beim Einschlafen zu unterstützen?";"In general, lullabies can be defined as songs that are intended to calm children and make it easier for them to fall asleep. You may know Johannes Brahm's Lullaby or Rockabye, baby. Do you use lullabies in the sense just defined to help your children fall asleep?"
