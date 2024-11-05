@@ -269,8 +269,6 @@ get_items <- function(q_id, subscales = c(), short_version = FALSE, configuratio
   }
 
   if(length(subscales) > 0 ){
-    has_subscale <- sapply(items$subscales, function(x){
-      any(sapply(subscales, function(y) ifelse(nzchar(y), stringr::str_detect(x, y), TRUE)))
     has_subscale <- sapply(items$subscales %>% stringr::str_split(";"), function(x){
       any(sapply(subscales, function(y){
         ifelse(nzchar(y), y %in% x, TRUE)
