@@ -299,6 +299,74 @@ main_test_deg <- function(questionnaire_id,
     ))
   }
 
+
+
+  if ("TDEG_0018" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q18",
+                psychTestR::i18n("TDEG_0018_PROMPT"),
+                sprintf("btn%d_text", 1:6),
+                labels = map(sprintf("TDEG_0018_CHOICE%d", 1:6), psychTestR::i18n),
+                arrange_vertically = TRUE,
+                button_style = "min-width: 400px",
+                on_complete = NULL
+      )
+    ),
+    dict = psyquest::psyquest_dict
+    ))
+  }
+
+  if ("TDEG_0019" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q19",
+                psychTestR::i18n("TDEG_0019_PROMPT"),
+                sprintf("btn%d_text", 1:7),
+                labels = map(sprintf("TDEG_0019_CHOICE%d", 1:7), psychTestR::i18n),
+                arrange_vertically = TRUE,
+                button_style = "min-width: 300px",
+                on_complete = NULL
+      )
+    ),
+    dict = psyquest::psyquest_dict
+    ))
+  }
+
+  if ("TDEG_0020" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(
+      # psychTestR::checkbox_page("q20",
+      #                           prompt = psychTestR::i18n("TDEG_0020_PROMPT"),
+      #                           choices = sprintf("btn%d_text", 1:6),
+      #                           labels = map(sprintf("TDEG_0020_CHOICE%d", 1:6), psychTestR::i18n),
+      #                           trigger_button_text = psychTestR::i18n("CONTINUE"),
+      #                           force_answer = F,
+      #                           failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")
+      # ),
+
+      NAFC_page("q20",
+                psychTestR::i18n("TDEG_0020_PROMPT"),
+                sprintf("btn%d_text", 1:6),
+                labels = map(sprintf("TDEG_0020_CHOICE%d", 1:6), psychTestR::i18n),
+                arrange_vertically = TRUE,
+                button_style = "min-width: 500px",
+                on_complete = NULL),
+    dict = psyquest::psyquest_dict
+    ))
+  }
+
+  if ("TDEG_0021" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q21",
+                psychTestR::i18n("TDEG_0021_PROMPT"),
+                sprintf("btn%d_text", 1:6),
+                labels = map(sprintf("TDEG_0021_CHOICE%d", 1:6), psychTestR::i18n),
+                arrange_vertically = TRUE,
+                button_style = "min-width: 500px",
+                on_complete = NULL
+      )
+    ),
+    dict = psyquest::psyquest_dict
+    ))
+  }
   if ("TDEG_0016" %in% prompt_ids) {
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
       NAFC_page("q16",
@@ -329,20 +397,6 @@ main_test_deg <- function(questionnaire_id,
     ))
   }
 
-  if ("TDEG_0018" %in% prompt_ids) {
-    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
-      NAFC_page("q18",
-                psychTestR::i18n("TDEG_0018_PROMPT"),
-                sprintf("btn%d_text", 1:6),
-                labels = map(sprintf("TDEG_0018_CHOICE%d", 1:6), psychTestR::i18n),
-                arrange_vertically = TRUE,
-                button_style = "min-width: 400px",
-                on_complete = NULL
-      )
-    ),
-    dict = psyquest::psyquest_dict
-    ))
-  }
   psychTestR::join(psychTestR::begin_module(label),
                    elts,
                    scoring(questionnaire_id, label, items, subscales),
@@ -387,13 +441,23 @@ postprocess_deg <- function(label, subscale, results, scores) {
   } else if (subscale == "Second Language") {
     results[[label]][["q8"]]
   } else if (subscale == "Qualification") {
-    stringr::str_extract(results[[label]][["q14"]], "[0-9]+")
+    choices <- get_item_choices("DEG", 14)
+    choices[as.integer(stringr::str_extract(results[[label]][["q14"]], "[0-9]+"))]
   } else if (subscale == "Employment") {
     c("Yes", "No")[as.integer(stringr::str_extract(results[[label]][["q15"]], "[0-9]+"))]
+  } else if (subscale == "Employment Long") {
+    choices <- get_item_choices("DEG", 19)
+    choices[as.integer(stringr::str_extract(results[[label]][["q19"]], "[0-9]+"))]
   } else if (subscale == "Life Circumstances") {
     stringr::str_extract(results[[label]][["q16"]], "[0-9]+")
   } else if (subscale == "Financial") {
     stringr::str_extract(results[[label]][["q17"]], "[0-9]+")
+  } else if (subscale == "School Degree") {
+    choices <- get_item_choices("DEG", 20)
+    choices[as.integer(stringr::str_extract(results[[label]][["q20"]], "[0-9]+"))]
+  } else if (subscale == "Vocational Qualification") {
+    choices <- get_item_choices("DEG", 21)
+    choices[as.integer(stringr::str_extract(results[[label]][["q21"]], "[0-9]+"))]
   } else if (subscale == "Music Proficiency") {
     7 - as.integer(stringr::str_extract(results[[label]][["q18"]], "[0-9]+"))
   } else if (subscale == "Handedness") {
