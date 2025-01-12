@@ -40,6 +40,7 @@ FSR <- function(label = "FSR",
     subscales = subscales,
     offset = 0,
     arrange_vertically = TRUE,
-    button_style = c("vertically" = "min-width: 275px", "horizontally" = "max-width: 210px")
+    button_style = c("vertically" = "min-width: 275px", "horizontally" = "max-width: 210px"),
+    dict = dict
   )
 }

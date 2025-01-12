@@ -24,11 +24,17 @@ MHE <- function(label = "MHE",
     label = label,
     items = get_items(questionnaire_id),
     offset = 1,
-    arrange_vertically = TRUE
+    arrange_vertically = TRUE,
+    dict = dict
   )
 }
 
-main_test_mhe <- function(questionnaire_id, label, items, offset = 1, arrange_vertically = TRUE) {
+main_test_mhe <- function(questionnaire_id,
+                          label,
+                          items,
+                          offset = 1,
+                          arrange_vertically = TRUE,
+                          dict) {
 
   elts <- psychTestR::join(psychTestR::new_timeline(c(
     checkbox_page("q1",
@@ -39,7 +45,7 @@ main_test_mhe <- function(questionnaire_id, label, items, offset = 1, arrange_ve
               trigger_button_text = psychTestR::i18n("CONTINUE"),
               failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER"))
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
   ))
   elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
     checkbox_page("q2",
@@ -50,7 +56,7 @@ main_test_mhe <- function(questionnaire_id, label, items, offset = 1, arrange_ve
               trigger_button_text = psychTestR::i18n("CONTINUE"),
               failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER"))
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
   ))
   elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
     radiobutton_NAFC_page("q3",
@@ -64,7 +70,7 @@ main_test_mhe <- function(questionnaire_id, label, items, offset = 1, arrange_ve
               trigger_button_text = psychTestR::i18n("CONTINUE"),
               failed_validation_message = psychTestR::i18n("CHOOSE_ANSWER"))
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
   ))
   elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
     radiobutton_NAFC_page("q4",
@@ -78,7 +84,7 @@ main_test_mhe <- function(questionnaire_id, label, items, offset = 1, arrange_ve
               trigger_button_text = psychTestR::i18n("CONTINUE"),
               failed_validation_message = psychTestR::i18n("CHOOSE_ANSWER"))
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
   ))
   elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
     radiobutton_NAFC_page("q5",
@@ -92,7 +98,7 @@ main_test_mhe <- function(questionnaire_id, label, items, offset = 1, arrange_ve
               trigger_button_text = psychTestR::i18n("CONTINUE"),
               failed_validation_message = psychTestR::i18n("CHOOSE_ANSWER"))
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
   ))
   elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
     radiobutton_NAFC_page("q6",
@@ -106,7 +112,7 @@ main_test_mhe <- function(questionnaire_id, label, items, offset = 1, arrange_ve
               trigger_button_text = psychTestR::i18n("CONTINUE"),
               failed_validation_message = psychTestR::i18n("CHOOSE_ANSWER"))
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
   ))
   elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
     radiobutton_NAFC_page("q7",
@@ -120,7 +126,7 @@ main_test_mhe <- function(questionnaire_id, label, items, offset = 1, arrange_ve
               trigger_button_text = psychTestR::i18n("CONTINUE"),
               failed_validation_message = psychTestR::i18n("CHOOSE_ANSWER"))
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
   ))
 
   psychTestR::join(psychTestR::begin_module(label),

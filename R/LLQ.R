@@ -28,7 +28,8 @@ LLQ <- function(label = "LLQ",
     subscales = subscales,
     language = language,
     offset = 1,
-    arrange_vertically = TRUE
+    arrange_vertically = TRUE,
+    dict = dict
   )
 }
 
@@ -42,7 +43,14 @@ validate_text <- function(answer, ...){
     }
 }
 
-main_test_llq <- function(questionnaire_id, label, items, subscales, language, offset = 1, arrange_vertically = TRUE) {
+main_test_llq <- function(questionnaire_id,
+                          label,
+                          items,
+                          subscales,
+                          language,
+                          offset = 1,
+                          arrange_vertically = TRUE,
+                          dict) {
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
   #browser()
@@ -57,7 +65,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                     javascript = "checkboxes = $('input:checkbox'); checkboxes.slice(checkboxes.length - 1, checkboxes.length).click(function() { checkboxes.slice(0, checkboxes.length - 1).prop('checked', '') }); checkboxes.slice(0, checkboxes.length - 1).click(function() { checkboxes.slice(checkboxes.length - 1, checkboxes.length).prop('checked', '') });",
                     trigger_button_text = psychTestR::i18n("CONTINUE"),
                     failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
   if ("TLLQ_0002" %in% prompt_ids) {
@@ -70,7 +78,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                     javascript = "checkboxes = $('input:checkbox'); checkboxes.slice(checkboxes.length - 1, checkboxes.length).click(function() { checkboxes.slice(0, checkboxes.length - 1).prop('checked', '') }); checkboxes.slice(0, checkboxes.length - 1).click(function() { checkboxes.slice(checkboxes.length - 1, checkboxes.length).prop('checked', '') });",
                     trigger_button_text = psychTestR::i18n("CONTINUE"),
                     failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -84,7 +92,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                     javascript = "checkboxes = $('input:checkbox'); checkboxes.slice(checkboxes.length - 1, checkboxes.length).click(function() { checkboxes.slice(0, checkboxes.length - 1).prop('checked', '') }); checkboxes.slice(0, checkboxes.length - 1).click(function() { checkboxes.slice(checkboxes.length - 1, checkboxes.length).prop('checked', '') });",
                     trigger_button_text = psychTestR::i18n("CONTINUE"),
                     failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -95,7 +103,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                 choices = sprintf("%d", 1:2),
                 labels = map(sprintf("TLLQ_0004_CHOICE%d", 1:2), psychTestR::i18n),
                 button_style = "min-width: 125px;"),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -107,7 +115,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                 labels = map(sprintf("TLLQ_0005_CHOICE%d", 1:2), psychTestR::i18n),
                 button_style = "min-width: 125px;"
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -121,7 +129,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                     #javascript = "checkboxes = $('input:checkbox'); checkboxes.slice(checkboxes.length - 1, checkboxes.length).click(function() { checkboxes.slice(0, checkboxes.length - 1).prop('checked', '') }); checkboxes.slice(0, checkboxes.length - 1).click(function() { checkboxes.slice(checkboxes.length - 1, checkboxes.length).prop('checked', '') });",
                     trigger_button_text = psychTestR::i18n("CONTINUE"),
                     failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
   if ("TLLQ_0007" %in% prompt_ids) {
@@ -132,7 +140,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                 labels = map(sprintf("TLLQ_0007_CHOICE%d", 1:2), psychTestR::i18n),
                 button_style = "min-width: 125px;"
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -149,7 +157,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                                          },
                                          button_style = "min-width: 125px;"
                                ),
-                               dict = psyquest::psyquest_dict
+                               dict = dict
                              )
     )
   }
@@ -169,7 +177,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                                                javascript = "checkboxes = $('input:checkbox'); checkboxes.slice(checkboxes.length - 1, checkboxes.length).click(function() { checkboxes.slice(0, checkboxes.length - 1).prop('checked', '') }); checkboxes.slice(0, checkboxes.length - 1).click(function() { checkboxes.slice(checkboxes.length - 1, checkboxes.length).prop('checked', '') });",
                                                trigger_button_text = psychTestR::i18n("CONTINUE"),
                                                failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-                                 dict = psyquest::psyquest_dict
+                                 dict = dict
                                )))
   }
 
@@ -181,7 +189,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                 labels = map(sprintf("TLLQ_0010_CHOICE%d", 1:2), psychTestR::i18n),
                 button_style = "min-width: 125px;"
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -194,7 +202,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                 labels = map(sprintf("TLLQ_0011_CHOICE%d", 1:2), psychTestR::i18n),
                 button_style = "min-width: 125px;"
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -209,7 +217,7 @@ main_test_llq <- function(questionnaire_id, label, items, subscales, language, o
                                width = "300px",
                                height = "200px"),
 
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
   psychTestR::join(psychTestR::begin_module(label),
