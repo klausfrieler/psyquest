@@ -46,13 +46,12 @@ main_test_btq <- function(questionnaire_id, label, items, offset = 1, arrange_ve
       dict = dict
     ),
     psychTestR::new_timeline(
-      psychTestR::checkbox_page("q2",
-                                prompt = psychTestR::i18n("TBTQ_0002_PROMPT"),
-                                choices = choices_from_key(sprintf("TBTQ_0002_CHOICE%d", 1:14)),
-                                labels = map(sprintf("TBTQ_0002_CHOICE%d", 1:14), psychTestR::i18n),
-                                trigger_button_text = psychTestR::i18n("CONTINUE"),
-                                force_answer = F,
-                                failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")
+      psychTestR::radiobutton_NAFC_page("q2",
+                                        prompt = psychTestR::i18n("TBTQ_0002_PROMPT"),
+                                        choices = choices_from_key(sprintf("TBTQ_0002_CHOICE%d", 1:14)),
+                                        labels = map(sprintf("TBTQ_0002_CHOICE%d", 1:14), psychTestR::i18n),
+                                        trigger_button_text = psychTestR::i18n("CONTINUE"),
+                                        failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")
       ),
       dict = psyquest::psyquest_dict
     ),
