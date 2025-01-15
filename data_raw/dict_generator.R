@@ -4,7 +4,7 @@ psyquest_dict_raw <-
   map_dfr(list.files("./data_raw/dicts/",  pattern = "*.csv$", full.names = TRUE), function(filepath) {
     #dict file must be UTF8 encoded!
     message(sprintf("Reading: %s", basename(filepath)))
-    # if(str_detect(filepath, "BMR")){
+    # if(str_detect(filepath, "SWB")){
     #   browser()
     # }
     #tmp <- read.table(filepath, sep = ";", stringsAsFactors = FALSE, header = TRUE, fileEncoding = "utf8")
@@ -27,6 +27,10 @@ psyquest_dict_raw <-
       tmp <- tmp  %>% mutate(es = en)
     }
     if(!("lv" %in% names(tmp))){
+      #print(tmp$key[1])
+      tmp <- tmp  %>% mutate(lv = en)
+    }
+    if(!("ar" %in% names(tmp))){
       #print(tmp$key[1])
       tmp <- tmp  %>% mutate(lv = en)
     }

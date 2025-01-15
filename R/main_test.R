@@ -156,6 +156,8 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
         subscale <- "class"
       }
       postprocess_ses(subscale, results, scores)
+    } else if (questionnaire_id == "SWB") {
+      mean(scores -1)
     } else if (questionnaire_id == "MDS" && subscale == "Target") {
       scores
     } else {

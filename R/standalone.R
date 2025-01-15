@@ -1115,6 +1115,23 @@ SWL_standalone <-
     standalone(label = "SWL", languages = languages, ...)
 
 
+#' SWB Standalone
+#'
+#' This function launches a standalone testing session for the SWB questionnaire.
+#' SWB stands for 'Subjective Wellbeing Scale'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+SWB_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "SWB", languages = languages, ...)
+
 #' TOI Standalone
 #'
 #' This function launches a standalone testing session for the TOI questionnaire.
