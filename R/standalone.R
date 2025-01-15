@@ -1,7 +1,7 @@
 #' Standalone
 #'
 #' This function launches a standalone testing session for a questionnaire with the specified label.
-#' Valid labels are 'BMR', 'BFT'. 'CBQ', CCM', 'DAC', 'DEG', 'GDS', 'GMS', 'GRT', 'HOP', 'HUM', 'HSP', 'IBQ', MES', 'MES', 'MHE', 'MHI', 'MHP', 'PAC', 'PMS'
+#' Valid labels are 'BMR', 'BFT'. 'CBQ', CCM', 'DAC', 'DEG', 'GDS', 'GMS', 'GRT', 'HOP', 'HUM', 'HSP', 'IBQ', MES', 'MES', 'MHE', 'MHI', 'MHP', 'PAC', 'PMS', 'LON'
 #' 'SDQ', 'SEM', 'SES','SMP', 'SOS', 'SWL', TOI', 'TOM', and 'TPI'.
 #' This can be used for data collection, either in the laboratory or online.
 #'
@@ -655,6 +655,22 @@ LLQ_standalone <-
     standalone(label = "LLQ",
                languages = languages,
                ...)
+#' LON Standalone
+#'
+#' This function launches a standalone testing session for the LON questionnaire.
+#' LON stands for 'Drama Activity'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+LON_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "LON", languages = languages, ...)
 
 #' MDS Standalone
 #'
