@@ -14,11 +14,14 @@
 #' @export
 PAC <- function(label = "PAC",
                 dict = psyquest::psyquest_dict,
+                exclude_dance = FALSE,
                 ...) {
   stopifnot(purrr::is_scalar_character(label))
 
   questionnaire_id <- "PAC"
-
+  if(exclude_dance){
+    questionnaire_id <- "PAS"
+  }
   main_test(
     questionnaire_id = questionnaire_id,
     label = label,

@@ -845,8 +845,8 @@ MUS_standalone <-
 #'
 #' @export
 PAC_standalone <-
-  function(languages = psyquest::languages(), ...)
-    standalone(label = "PAC", languages = languages, ...)
+  function(languages = psyquest::languages(), exclude_dance = FALSE, ...)
+    standalone(label = "PAC", languages = languages, exclude_dance = exclude_dance,  ...)
 
 #' PHT Standalone
 #'

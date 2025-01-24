@@ -294,6 +294,10 @@ get_items <- function(q_id, subscales = c(), short_version = FALSE, configuratio
     else if (q_id == "SCS") {
       question_ids <- c(3, 5, 6, 10, 11, 17, 18, 22) - 1
     }
+    else if (q_id == "PAC") {
+      browser()
+      question_ids <- c(11:16)
+    }
     else if (q_id == "PHT") {
       #question_ids <- c(1, 4, 7, 11, 15, 20, 23, 27, 29, 32, 37, 39, 41, 46, 48, 53, 55)
       #question_ids <- c(1, 6, 7, 12, 15, 17, 19, 22, 26, 30, 31, 36, 37, 42, 43, 47, 49)
