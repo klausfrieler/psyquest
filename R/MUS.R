@@ -38,11 +38,17 @@ MUS <- function(label = "MUS",
     items = get_items(questionnaire_id,
                       subscales = subscales),
     audio_dir = audio_dir,
-    subscales = subscales
+    subscales = subscales,
+    dict = dict
   )
 }
 
-main_test_mus <- function(questionnaire_id, label, items, subscales, audio_dir) {
+main_test_mus <- function(questionnaire_id,
+                          label,
+                          items,
+                          subscales,
+                          audio_dir,
+                          dict) {
   elts <- c()
   audio <- c()
   get_audio <- function(label) {
@@ -79,7 +85,7 @@ main_test_mus <- function(questionnaire_id, label, items, subscales, audio_dir) 
         button_style = "min-width:250px",
         labels = map(choice_ids, psychTestR::i18n)
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     )
     elts <- psychTestR::join(elts, item_page)
   }

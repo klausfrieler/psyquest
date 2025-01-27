@@ -23,6 +23,7 @@ GRT <- function(label = "GRT",
     items = get_items(questionnaire_id),
     offset = 1,
     arrange_vertically = TRUE,
-    button_style = "min-width: 244px"
+    button_style = "min-width: 244px",
+    dict = dict
   )
 }

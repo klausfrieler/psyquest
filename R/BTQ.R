@@ -24,13 +24,14 @@ BTQ <- function(label = "BTQ",
     label = label,
     items = get_items(questionnaire_id),
     offset = 0,
-    arrange_vertically = TRUE
+    arrange_vertically = TRUE,
+    dict = dict
   )
 }
 choices_from_key <- function(keys){
   map_chr(keys, function(k) psyquest_dict$translate(k, language = "en"))
 }
-main_test_btq <- function(questionnaire_id, label, items, offset = 1, arrange_vertically = TRUE) {
+main_test_btq <- function(questionnaire_id, label, items, offset = 1, arrange_vertically = TRUE, dict) {
 
   elts <- psychTestR::join(
     psychTestR::new_timeline(
@@ -42,7 +43,7 @@ main_test_btq <- function(questionnaire_id, label, items, offset = 1, arrange_ve
                                 force_answer = F,
                                 failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ),
     psychTestR::new_timeline(
       psychTestR::radiobutton_NAFC_page("q2",
