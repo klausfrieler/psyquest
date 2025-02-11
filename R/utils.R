@@ -90,7 +90,7 @@ get_item_choices <- function(questionnaire_id, item_id, language = "en"){
     filter(stringr::str_detect(key, sstr))
   if(length(language) == 1){
     if(nrow(choices) > 0){
-      choices %>% pull(!!sym(language))
+      choices %>% pull(!!dplyr::sym(language))
     }
     else{
       character(0)
@@ -98,7 +98,7 @@ get_item_choices <- function(questionnaire_id, item_id, language = "en"){
   }
   else{
     if(nrow(choices) > 0){
-      choices %>% select(key, all_of(language))
+      choices %>% select(key, dplyr::all_of(language))
     }
     else{
       choices
