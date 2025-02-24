@@ -399,6 +399,21 @@ main_test_deg <- function(questionnaire_id,
     ))
   }
 
+  if ("TDEG_0022" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q22",
+                psychTestR::i18n("TDEG_0022_PROMPT"),
+                sprintf("btn%d_text", 1:2),
+                labels = map(sprintf("TDEG_0022_CHOICE%d", 1:2), psychTestR::i18n),
+                arrange_vertically = FALSE,
+                button_style = "min-width: 100px",
+                on_complete = NULL
+      )
+    ),
+    dict = psyquest::psyquest_dict
+    ))
+  }
+
   psychTestR::join(psychTestR::begin_module(label),
                    elts,
                    scoring(questionnaire_id, label, items, subscales),
@@ -465,6 +480,8 @@ postprocess_deg <- function(label, subscale, results, scores) {
   } else if (subscale == "Handedness") {
     c(as.numeric(gsub("[^0-9]", "", results[[label]][["q10"]])),
       as.numeric(gsub("[^0-9]", "", results[[label]][["q11"]])))
+  } else if (subscale == "Born Here") {
+    c("yes", "no")[as.integer(stringr::str_extract(results[[label]][["q22"]], "[0-9]+"))]
   } else {
     mean(scores)
   }

@@ -78,3 +78,6 @@ TDEG_0021_CHOICE4;Bachelor;Bachelor;Bachelor's degree;Laurea triennale presso un
 TDEG_0021_CHOICE5;Master/Staatsexamen/Diplom;Master/Staatsexamen/Diplom;Master's degree/state examination/diploma;Laurea specialistica/esame di stato/diploma conseguito presso un'università (tecnica);Máster/examen de Estado/diploma completado en una universidad (técnica);Maģistra grāds/valsts eksāmens/diploms, kas iegūts (tehniskajā) augstskolā.
 TDEG_0021_CHOICE6;Promotion;Promotion;Doctorate;Dottorato di ricerca;Doctorado;Doktora grāds 
 TDEG_0021_PROMPT;Welchen höchsten beruflichen Ausbildungsabschluss hast du?;Welchen höchsten beruflichen Ausbildungsabschluss haben Sie?;What is your highest vocational qualification?;Qual è la sua più alta qualifica professionale?;¿Cuál es su cualificación profesional más alta?;Kāda ir jūsu augstākā profesionālā kvalifikācija? 
+TDEG_0022_CHOICE1;Ja;Ja;Yes;Si;Si;Jā 
+TDEG_0022_CHOICE2;Nein;Nein;No;No;No;Nē 
+TDEG_0022_PROMPT;Wurdest Du in diesem Land geboren?;Wurden Sie in diesem Land geboren?;Were you born in this country?;Sei nato in questo paese?;¿Ha nacido en este país?;Vai esat dzimis šajā valstī?
