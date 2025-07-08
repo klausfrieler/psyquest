@@ -142,16 +142,7 @@ main_test_ccm <- function(questionnaire_id, label, items, subscales, offset = 1,
 postprocess_ccm <- function(questionnaire_id, label, subscale, results, scores) {
   #browser()
   if (subscale == "General") {
-    count_q1 <- if (results[[label]][["q1"]] == c("choice9")) {
-      0
-    } else {
-      choices <- results[[label]][["q1"]]
-      if("choice9" %in% choices) {
-        shiny::stopApp("Error: 'choice9' in choices!")
-      } else {
-        length(choices)
-      }
-    }
+    count_q1 <- length(setdiff(results[[label]][["q1"]], "choice9"))
     scoring_map <- psyquest::scoring_maps[[questionnaire_id]]
     mapped_value_q1 <- scoring_map[scoring_map$score == count_q1, ]$raw
     values <- c(mapped_value_q1,
