@@ -36,18 +36,12 @@ scoring <- function(questionnaire_id, label, items, subscales = c(), short_versi
 
   psychTestR::code_block(function(state, ...) {
     results <- psychTestR::get_results(state = state, complete = FALSE) %>% as.list()
-
-    # scores_raw_old <- map(results, function(result) {
-    #   browser()
-    #   result <- get(label, results)
-    #   as.numeric(gsub("[^0-9]", "", result))
-    # })[[1]]
+    #browser()
 
     raw_data <- results[[label]]
     if(is.null(raw_data)){
       stop(sprintf("Invalid label: %s", label))
     }
-    #browser()
     item_scores <- raw_data[stringr::str_detect(names(raw_data), "^q")]
     item_ids <- as.numeric(stringr::str_extract(names(raw_data), "[0-9]+"))
     item_ids <- item_ids[!is.na(item_ids)]
@@ -104,6 +98,9 @@ scoring <- function(questionnaire_id, label, items, subscales = c(), short_versi
     }
     if(questionnaire_id == "BTQ"){
       names(results[["BTQ"]]) <- names(subscale_list)
+    }
+    if(questionnaire_id == "MUS"){
+      browser()
     }
     postprocess(questionnaire_id, label, subscale_list, short_version, state, results)
   })
@@ -273,6 +270,7 @@ main_test <- function(questionnaire_id,
     #elts <- psychTestR::join(elts, item_page)
     item_pages <- c(item_pages, item_page)
   }
+  browser()
   if(randomize) item_pages <- psychTestR::randomise_at_run_time(label = "item_order", item_pages)
   elts <- psychTestR::join(elts, item_pages)
   if(!randomize) elts <- do.call(psychTestR::join, elts)
