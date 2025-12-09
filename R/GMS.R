@@ -40,11 +40,12 @@ GMS <- function(label = "GMS",
                       short_version = short_version,
                       configuration_filepath = configuration_filepath),
     subscales = subscales,
-    dict = dict
+    dict = dict,
+    ...
   )
 }
 
-main_test_gms <- function(questionnaire_id, label, items, subscales, dict) {
+main_test_gms <- function(questionnaire_id, label, items, subscales, dict, with_prompt_head = FALSE, style_params = NULL) {
   elts <- c()
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
@@ -92,7 +93,9 @@ main_test_gms <- function(questionnaire_id, label, items, subscales, dict) {
         prompt = get_prompt(
           counter,
           length(question_numbers),
-          sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter])
+          sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
+          with_prompt_head = with_prompt_head,
+          style_params = style_params
         ),
         choices = choices,
         arrange_vertically = arrange_vertically,
