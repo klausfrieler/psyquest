@@ -32,6 +32,18 @@ GMS <- function(label = "GMS",
 
   questionnaire_id <- "GMS"
 
+  dots <- list(...)
+  if (is.null(dots$style_params)) {
+    style_params <- NULL
+  } else {
+    style_params <- dots$style_params
+  }
+  if (is.null(dots$with_prompt_head)) {
+    with_prompt_head <- FALSE
+  } else {
+    with_prompt_head <- dots$with_prompt_head
+  }
+
   main_test_gms(
     questionnaire_id = questionnaire_id,
     label = label,
@@ -41,7 +53,8 @@ GMS <- function(label = "GMS",
                       configuration_filepath = configuration_filepath),
     subscales = subscales,
     dict = dict,
-    ...
+    with_prompt_head = with_prompt_head,
+    style_params = style_params
   )
 }
 
