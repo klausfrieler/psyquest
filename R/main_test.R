@@ -131,6 +131,8 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
       }
     } else if (questionnaire_id == "BTQ") {
       postprocess_btq(questionnaire_id, subscale, results)
+    } else if (questionnaire_id == "CHD") {
+      postprocess_chd(questionnaire_id, subscale, results)
     } else if (questionnaire_id == "MHE") {
       postprocess_mhe(questionnaire_id, subscale_list[["General"]])
     } else if (questionnaire_id == "QHC") {
@@ -270,7 +272,6 @@ main_test <- function(questionnaire_id,
     #elts <- psychTestR::join(elts, item_page)
     item_pages <- c(item_pages, item_page)
   }
-  browser()
   if(randomize) item_pages <- psychTestR::randomise_at_run_time(label = "item_order", item_pages)
   elts <- psychTestR::join(elts, item_pages)
   if(!randomize) elts <- do.call(psychTestR::join, elts)

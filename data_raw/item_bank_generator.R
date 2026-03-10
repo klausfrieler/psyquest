@@ -5,7 +5,7 @@ psyquest_item_bank_raw <-
      if(grepl("BTQ", filepath)){
       #browser()
      }
-
+    messagef("Reading %s", basename(filepath))
     read.csv(filepath, sep = ";", stringsAsFactors = FALSE, header = TRUE)
   })
 

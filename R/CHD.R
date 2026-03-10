@@ -98,7 +98,7 @@ main_test_chd <- function(questionnaire_id,
   }
 
   if ("TCHD_0004" %in% prompt_ids) {
-    num_kids <- set_names(as.character(0:10), c(as.character(0:9), "10+"))
+    num_kids <- purrr::set_names(c(as.character(0:9), "10+"), c(as.character(0:9), "10+"))
     elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
       dropdown_page("q3",
                     psychTestR::i18n("TCHD_0004_PROMPT"),
@@ -183,26 +183,44 @@ main_test_chd <- function(questionnaire_id,
                    psychTestR::end_module())
 }
 
+get_plain_text_chd <- function(results, label, item_id){
+  plain_text <- map_chr(results[[label]][[sprintf("q%s", item_id)]], function(x){
+    sprintf("%s",
+            psyquest::psyquest_dict$translate(sprintf("TCHD_00%02d_CHOICE%s",
+                                                      as.integer(item_id) + 1, parse_number(x)),
+                                              language = "en"))
+  })
+  paste(plain_text, collapse = ",")
+}
+
 postprocess_chd <- function(label, subscale, results, scores) {
   #browser()
+  #print(subscale)
   gender_labels <- c("female", "male", "diverse", "rather not say")
   if (subscale == "Children Age") {
+    #get_plain_text_chd(results, label, 1)
     results[[label]][["q1"]]
   } else if (subscale == "Children Language") {
     results[[label]][["q2"]]
-  } else if (subscale == "Household Children ") {
+  } else if (subscale == "Household Children") {
+    #get_plain_text_chd(results, label, 3)
     results[[label]][["q3"]]
   } else if (subscale == "Children Gender") {
     gender_labels[as.numeric(gsub("[^0-9]", "", results[[label]][["q4"]]))]
   } else if (subscale == "Family Situation") {
-    stringr::str_extract(results[[label]][["q5"]], "[0-9]+")
+    get_plain_text_chd(results, label, 5)
   } else if (subscale == "External Care") {
-    stringr::str_extract(results[[label]][["q6"]], "[0-9]+")
+    get_plain_text_chd(results, label, 6)
+    #stringr::str_extract(results[[label]][["q6"]], "[0-9]+")
   } else if (subscale == "Caretaker") {
-    stringr::str_extract(results[[label]][["q7"]], "[0-9]+")
+    get_plain_text_chd(results, label, 7)
+    #stringr::str_extract(results[[label]][["q7"]], "[0-9]+")
   } else if (subscale == "Second Parent") {
-    stringr::str_extract(results[[label]][["q8"]], "[0-9]+")
+    get_plain_text_chd(results, label, 8)
+
+    #stringr::str_extract(results[[label]][["q8"]], "[0-9]+")
   } else {
+    stop("Should not happen")
     mean(scores)
   }
 }

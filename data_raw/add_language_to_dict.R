@@ -31,7 +31,7 @@ add_languages_to_dict <- function(source_dict_dir,
       else{
         source <- readxl::read_xlsx(filepath)
       }
-      source <- source %>% set_names(tolower(names(.)))
+      source <- source %>% purrr::set_names(tolower(names(.)))
 
       if(!(tolower(key_name) %in% names(source))){
         messagef("Dictionary '%s' does not have 'key' column, Skipping.", basename(filepath))
@@ -128,7 +128,7 @@ add_languages_to_dict <- function(source_dict_dir,
 
 extract_language_col <- function(excel_file, language){
   source <- readxl::read_excel(excel_file) %>%
-    set_names(str_remove_all(names(.), '"')) %>%
+    purrr::set_names(str_remove_all(names(.), '"')) %>%
     select(key, all_of(language))
   source
 }
@@ -155,7 +155,7 @@ shift_prompts <- function(dict_file, offset = 1, exclude_numbers = c(0), rewrite
 excel_dict_to_csv <- function(excel_file, csv_file, cols = NULL, sep = ",", quote = T){
   browser()
   source <- readxl::read_xlsx(excel_file) %>%
-    set_names(str_remove_all(names(.), '"')) %>%
+    purrr::set_names(str_remove_all(names(.), '"')) %>%
     na.omit()
 
   if(is.null(cols)){

@@ -159,10 +159,27 @@ BMR_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "BMR", languages = languages, ...)
 
+#' BRE Standalone
+#'
+#' This function launches a standalone testing session for the BRE questionnaire.
+#' BRE stands for 'BRECVEMA'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_f"} (formal German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+BRE_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "BRE", languages = languages, ...)
+
 #' BTQ Standalone
 #'
 #' This function launches a standalone testing session for the BFT questionnaire.
-#' BFT stands for 'Bedtime Questionnaire'.
+#' BTQ stands for 'Bedtime Questionnaire'.
 #'
 #' @param languages (Character vector)
 #' Determines the languages available to participants.
@@ -908,6 +925,23 @@ QHC_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "QHC", languages = languages, ...)
 
+
+#' SAQ Standalone
+#'
+#' This function launches a standalone testing session for the SAQ questionnaire.
+#' SAQ stands for 'Spreading Activation Questionnaire'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+SAQ_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "SAQ", languages = languages, ...)
 
 #' SCA Standalone
 #'
