@@ -171,7 +171,6 @@ BMR_standalone <-
 #'
 #' @param ... Further arguments to be passed to \code{\link{standalone}()}.
 #'
-#' @export
 BRE_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "BRE", languages = languages, ...)
@@ -954,7 +953,6 @@ QHC_standalone <-
 #'
 #' @param ... Further arguments to be passed to \code{\link{standalone}()}.
 #'
-#' @export
 SAQ_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "SAQ", languages = languages, ...)
