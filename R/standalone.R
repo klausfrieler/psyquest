@@ -243,6 +243,22 @@ CHD_standalone <-
                languages = languages,
                subscales = subscales,
                ...)
+#' CMI Standalone
+#'
+#' This function launches a standalone testing session for the CMI questionnaire.
+#' CMI stands for 'Children  Musicality Index'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English),  \code{"de_f"} (German), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+CMI_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "CMI", languages = languages, ...)
 
 #' CMS Standalone
 #'
