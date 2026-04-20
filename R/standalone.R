@@ -1,7 +1,7 @@
 #' Standalone
 #'
 #' This function launches a standalone testing session for a questionnaire with the specified label.
-#' Valid labels are 'BMR', 'BFT'. 'CBQ', CCM', 'DAC', 'DEG', 'GDS', 'GMS', 'GRT', 'HOP', 'HUM', 'HSP', 'IBQ', MES', 'MES', 'MHE', 'MHI', 'MHP', 'PAC', 'PMS', 'LON'
+#' Valid labels are 'BMR', 'BFT'. 'BFC', CBQ', CCM', 'DAC', 'DEG', 'GDS', 'GMS', 'GRT', 'HOP', 'HUM', 'HSP', 'IBQ', MES', 'MES', 'MHE', 'MHI', 'MHP', 'PAC', 'PMS', 'LON'
 #' 'SDQ', 'SEM', 'SES','SMP', 'SOS', 'SWL', TOI', 'TOM', and 'TPI'.
 #' This can be used for data collection, either in the laboratory or online.
 #'
@@ -141,6 +141,23 @@ CBQ_standalone <-
 BFT_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "BFT", languages = languages, ...)
+
+#' BFC Standalone
+#'
+#' This function launches a standalone testing session for the BFC questionnaire.
+#' BFC stands for 'Big Five Inventory 10-items for Parents' (about a child).
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_d"} (formal German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+BFC_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "BFC", languages = languages, ...)
 
 #' BMR Standalone
 #'
