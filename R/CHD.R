@@ -19,6 +19,8 @@
 CHD <- function(label = "CHD",
                 dict = psyquest::psyquest_dict,
                 subscales = c(),
+                age_scale = c("Children Age", "Birth Date"),
+                year_range = c(2000, 2026),
                 language = "en",
                 ...) {
   stopifnot(purrr::is_scalar_character(label))
@@ -27,7 +29,15 @@ CHD <- function(label = "CHD",
   if(is.null(subscales) || length(subscales) == 0){
     subscales <- get_subscales("CHD")
   }
+  age_scale <- match.arg(age_scale)
+  subscales <- setdiff(subscales, setdiff(c("Children Age", "Birth Date"), age_scale))
+
   dots <- list(...)
+  show_month <- TRUE
+  if("show_month" %in% names(dots)){
+    show_month <- dots$show_month
+  }
+
   main_test_chd(
     questionnaire_id = questionnaire_id,
     label = label,
@@ -36,6 +46,9 @@ CHD <- function(label = "CHD",
     subscales = subscales,
     language = language,
     offset = 2,
+    min_year = year_range[1],
+    max_year = year_range[2],
+    show_month = show_month,
     arrange_vertically = TRUE
   )
 }
@@ -46,6 +59,9 @@ main_test_chd <- function(questionnaire_id,
                           subscales,
                           language,
                           offset = 1,
+                          min_year,
+                          max_year,
+                          show_month,
                           arrange_vertically = TRUE) {
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
@@ -176,6 +192,44 @@ main_test_chd <- function(questionnaire_id,
     dict = psyquest::psyquest_dict
     ))
   }
+  if ("TCHD_0010" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      month_and_year_select_page("q9",
+                                 psychTestR::i18n("TCHD_0010_PROMPT"),
+                                 min_year = min_year,
+                                 max_year = max_year,
+                                 show_month = show_month)
+    ),
+    dict = psyquest::psyquest_dict
+    ))
+  }
+  if ("TCHD_0011" %in% prompt_ids) {
+    languages <- languages_def[["en1"]]
+
+    if (language[1] == "de" || language[1] == "de_f") {
+      languages <- languages_def[["de1"]]
+    }
+
+    if (language[1] == "it") {
+      languages <- languages_def[["de1"]]
+    }
+    if (language[1] == "es") {
+      languages <- languages_def[["es1"]]
+    }
+    if (language[1] == "lv") {
+      languages <- languages_def[["lv1"]]
+    }
+
+    language_codes <- language_codes_def[languages]
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      dropdown_page("q10",
+                    psychTestR::i18n("TCHD_0011_PROMPT"),
+                    setNames(language_codes, map(languages, psychTestR::i18n)),
+                    next_button_text = psychTestR::i18n("CONTINUE"))
+    ),
+    dict = dict
+    ))
+  }
 
   psychTestR::join(psychTestR::begin_module(label),
                    elts,
@@ -200,6 +254,23 @@ postprocess_chd <- function(label, subscale, results, scores) {
   if (subscale == "Children Age") {
     #get_plain_text_chd(results, label, 1)
     results[[label]][["q1"]]
+  } else if (subscale == "Birth Date") {
+    res <- results[[label]][["q9"]]
+    cur_date <- Sys.Date()
+    cur_year <- get_year(cur_date)
+    cur_month <- get_month(cur_date) - 1
+
+    if(length(res) == 2){
+      month <- as.integer(res[1]) - 1
+      year <- as.numeric(res[2])
+      age <- (cur_year - year) * 12 + cur_month - month
+
+    }
+    else{
+      year <- as.numeric(res[1])
+      age <- (cur_year - year) * 12
+    }
+    age
   } else if (subscale == "Children Language") {
     results[[label]][["q2"]]
   } else if (subscale == "Household Children") {

@@ -290,8 +290,8 @@ CMI_standalone <-
 #'
 #' @export
 CMS_standalone <-
-  function(languages = psyquest::languages(), ...)
-    standalone(label = "CMS", languages = languages, ...)
+  function(subscales = NULL, languages = psyquest::languages(), ...)
+    standalone(label = "CMS", languages = languages, subscales = subscales, ...)
 
 
 #' CMT Standalone

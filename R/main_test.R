@@ -133,6 +133,8 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
       postprocess_btq(questionnaire_id, subscale, results)
     } else if (questionnaire_id == "CHD") {
       postprocess_chd(questionnaire_id, subscale, results)
+    } else if (questionnaire_id == "CMS") {
+      postprocess_cms(questionnaire_id, subscale, results, scores)
     } else if (questionnaire_id == "MHE") {
       postprocess_mhe(questionnaire_id, subscale_list[["General"]])
     } else if (questionnaire_id == "QHC") {

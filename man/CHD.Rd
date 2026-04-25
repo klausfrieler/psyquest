@@ -8,6 +8,8 @@ CHD(
   label = "CHD",
   dict = psyquest::psyquest_dict,
   subscales = c(),
+  age_scale = c("Children Age", "Birth Date"),
+  year_range = c(2000, 2026),
   language = "en",
   ...
 )
@@ -22,11 +24,11 @@ This is also the label given to the results in the output file.}
 Possible subscales are "Best Shot", "Hearing Impairment", "Type of Hearing Impairment", "Gender", "Age", "Nationality", "Country Formative Years", "First Language", "Second Language", and "Handedness".
 If no subscales are provided all subscales are selected.}
 
+\item{year_range}{(length 2 int vector) The minimum and maximum year for birth date dropdown boxes.}
+
 \item{language}{Language the questionnaire is rendered in.}
 
 \item{...}{Further arguments to be passed to \code{\link{CHD}()} (e.g., can be used to set choice of country of residence.)}
-
-\item{year_range}{(length 2 int vector) The minimum and maximum year for birth date dropdown boxes.}
 }
 \description{
 This function defines a CHD module for incorporation into a

@@ -14,7 +14,12 @@ TCHD_0002_CHOICE10;6 Jahre;6 Jahre;6 years
 TCHD_0002_CHOICE11;7 Jahre;7 Jahre;7 years
 TCHD_0002_CHOICE12;8 Jahre;8 Jahre;8 years
 TCHD_0002_CHOICE13;9 Jahre;9 Jahre;9 years
-TCHD_0002_CHOICE14;10+ Jahre;10+ Jahre;10+ years  
+TCHD_0002_CHOICE14;10 Jahre;10 Jahre;10 years
+TCHD_0002_CHOICE15;11 Jahre;11 Jahre;11 years
+TCHD_0002_CHOICE16;12 Jahre;12 Jahre;12 years
+TCHD_0002_CHOICE17;13 Jahre;13 Jahre;13 years
+TCHD_0002_CHOICE18;14 Jahre;14 Jahre;14 years
+TCHD_0002_CHOICE19;15+ Jahre;15+ Jahre;15+ years  
 TCHD_0002_PROMPT;Wie alt ist das Kind?;Wie alt ist das Kind?;What is the age of the child?
 TCHD_0003_PROMPT;Was ist die Muttersprache des Kindes?;Was ist die Muttersprache des Kindes?;What is the native language of the child?
 TCHD_0004_PROMPT;Wieviele Kinder leben dauerhaft  im Ihrem Haushalt?;Wieviele Kinder leben dauerhaft  im Ihrem Haushalt?;How many children live permanenty in your family?
@@ -41,3 +46,4 @@ TCHD_0009_CHOICE2;Mutter;Mutter;Mother
 TCHD_0009_CHOICE3;Zweiter Vater;Zweiter Vater;Second father 
 TCHD_0009_CHOICE4;Zweite Mutter;Zweite Mutter;Second mother 
 TCHD_0009_PROMPT;Wer ist der zweite Elternteil?;Wer ist der zweite Elternteil?;Who is the second parent?
+TCHD_0010_PROMPT;In welchem Monat und Jahr wurde das Kind geboren?;In welchem Monat und Jahr wurde das Kind geboren?;When was the child born?
