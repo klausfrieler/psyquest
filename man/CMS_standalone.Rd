@@ -4,7 +4,12 @@
 \alias{CMS_standalone}
 \title{CMS Standalone}
 \usage{
-CMS_standalone(subscales = NULL, languages = psyquest::languages(), ...)
+CMS_standalone(
+  subscales = NULL,
+  languages = psyquest::languages(),
+  alt_intro = NULL,
+  ...
+)
 }
 \arguments{
 \item{languages}{(Character vector)

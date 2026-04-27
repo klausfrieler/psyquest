@@ -47,6 +47,7 @@ standalone <- function(label,
                        with_id = FALSE,
                        validate_id = "auto",
                        randomize = FALSE,
+                       alt_intro = NULL,
                        ...) {
   subscales <- sort(subscales)
   items <-
@@ -71,6 +72,7 @@ standalone <- function(label,
       short_version = short_version,
       configuration_filepath = configuration_filepath,
       randomize = randomize,
+      alt_intro = alt_intro,
       ...
     ),
     # psychTestR::code_block(function(state,...){
@@ -254,10 +256,12 @@ CCM_standalone <-
 CHD_standalone <-
   function(languages = psyquest::languages(),
            subscales = NULL,
+           alt_intro = NULL,
            ...)
     standalone(label = "CHD",
                languages = languages,
                subscales = subscales,
+               alt_intro = alt_intro,
                ...)
 #' CMI Standalone
 #'
@@ -290,8 +294,8 @@ CMI_standalone <-
 #'
 #' @export
 CMS_standalone <-
-  function(subscales = NULL, languages = psyquest::languages(), ...)
-    standalone(label = "CMS", languages = languages, subscales = subscales, ...)
+  function(subscales = NULL, languages = psyquest::languages(), alt_intro = NULL, ...)
+    standalone(label = "CMS", languages = languages, subscales = subscales, alt_intro = alt_intro,...)
 
 
 #' CMT Standalone

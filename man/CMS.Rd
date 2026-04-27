@@ -9,6 +9,7 @@ CMS(
   subscales = c(),
   with_extra_scales = F,
   dict = psyquest::psyquest_dict,
+  alt_intro = F,
   ...
 )
 }

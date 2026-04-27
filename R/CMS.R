@@ -16,6 +16,7 @@ CMS <- function(label = "CMS",
                 subscales = c(),
                 with_extra_scales = F,
                 dict = psyquest::psyquest_dict,
+                alt_intro = F,
                 ...) {
   stopifnot(purrr::is_scalar_character(label))
   extra_scales <- c("Instrumental Lessons",
@@ -37,6 +38,7 @@ CMS <- function(label = "CMS",
     label = label,
     items = get_items(questionnaire_id, subscales = subscales),
     offset = 1,
+    alt_intro = "TCMS_0016_PROMPT",
     arrange_vertically = TRUE,
     button_style = "min-width: 290px",
     dict = dict

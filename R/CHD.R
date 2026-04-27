@@ -21,6 +21,7 @@ CHD <- function(label = "CHD",
                 subscales = c(),
                 age_scale = c("Children Age", "Birth Date"),
                 year_range = c(2000, 2026),
+                alt_intro = F,
                 language = "en",
                 ...) {
   stopifnot(purrr::is_scalar_character(label))
@@ -49,7 +50,8 @@ CHD <- function(label = "CHD",
     min_year = year_range[1],
     max_year = year_range[2],
     show_month = show_month,
-    arrange_vertically = TRUE
+    arrange_vertically = TRUE,
+    alt_intro = alt_intro
   )
 }
 
@@ -62,13 +64,18 @@ main_test_chd <- function(questionnaire_id,
                           min_year,
                           max_year,
                           show_month,
-                          arrange_vertically = TRUE) {
+                          arrange_vertically = TRUE,
+                          alt_intro = F) {
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
+  intro_prompt <- "TCHD_0001_PROMPT"
+  if(alt_intro){
+    intro_prompt <- "TCHD_0011_PROMPT"
+  }
   elts <- psychTestR::new_timeline(
       psychTestR::one_button_page(
       body = shiny::div(
-        psychTestR::i18n("TCHD_0001_PROMPT"),
+        psychTestR::i18n(intro_prompt),
         style = "margin-left:20%;margin-right:20%;text-align:justify;margin-bottom:2em"),
       button_text = psychTestR::i18n("CONTINUE")
     ),
@@ -270,7 +277,7 @@ postprocess_chd <- function(label, subscale, results, scores) {
       year <- as.numeric(res[1])
       age <- (cur_year - year) * 12
     }
-    age
+    age/12
   } else if (subscale == "Children Language") {
     results[[label]][["q2"]]
   } else if (subscale == "Household Children") {

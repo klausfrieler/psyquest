@@ -4,7 +4,12 @@
 \alias{CHD_standalone}
 \title{CHD Standalone}
 \usage{
-CHD_standalone(languages = psyquest::languages(), subscales = NULL, ...)
+CHD_standalone(
+  languages = psyquest::languages(),
+  subscales = NULL,
+  alt_intro = NULL,
+  ...
+)
 }
 \arguments{
 \item{languages}{(Character vector)

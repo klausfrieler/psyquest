@@ -10,6 +10,7 @@ CHD(
   subscales = c(),
   age_scale = c("Children Age", "Birth Date"),
   year_range = c(2000, 2026),
+  alt_intro = F,
   language = "en",
   ...
 )

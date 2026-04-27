@@ -182,6 +182,7 @@ main_test <- function(questionnaire_id,
                       offset = 1,
                       arrange_vertically = TRUE,
                       button_style = "",
+                      alt_intro = NULL,
                       dict = psyquest::psyquest_dict,
                       style_params = NULL,
                       randomize = FALSE) {
@@ -220,10 +221,14 @@ main_test <- function(questionnaire_id,
       )
     }
     else{
+      intro_prompt <- stringr::str_interp("T${questionnaire_id}_0001_PROMPT")
+      if(!is.null(alt_intro)){
+        intro_prompt <- alt_intro
+      }
       elts <- c(elts, psychTestR::new_timeline(
         psychTestR::one_button_page(
           body = shiny::p(
-            psychTestR::i18n(stringr::str_interp("T${questionnaire_id}_0001_PROMPT"), ),
+            psychTestR::i18n(intro_prompt),
             style = "margin-left:20%;margin-right:20%;text-align:justify;margin-bottom:2em"
           ),
           button_text = psychTestR::i18n("CONTINUE")
