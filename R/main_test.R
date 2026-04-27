@@ -222,7 +222,7 @@ main_test <- function(questionnaire_id,
     }
     else{
       intro_prompt <- stringr::str_interp("T${questionnaire_id}_0001_PROMPT")
-      if(!is.null(alt_intro)){
+      if(!is.null(alt_intro) && is.character(alt_intro)){
         intro_prompt <- alt_intro
       }
       elts <- c(elts, psychTestR::new_timeline(

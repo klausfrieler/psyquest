@@ -7,7 +7,7 @@
 CHD_standalone(
   languages = psyquest::languages(),
   subscales = NULL,
-  alt_intro = NULL,
+  alt_intro = F,
   ...
 )
 }

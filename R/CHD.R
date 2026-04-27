@@ -38,7 +38,6 @@ CHD <- function(label = "CHD",
   if("show_month" %in% names(dots)){
     show_month <- dots$show_month
   }
-
   main_test_chd(
     questionnaire_id = questionnaire_id,
     label = label,
@@ -68,8 +67,9 @@ main_test_chd <- function(questionnaire_id,
                           alt_intro = F) {
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
+
   intro_prompt <- "TCHD_0001_PROMPT"
-  if(alt_intro){
+  if(!is.null(alt_intro) && alt_intro){
     intro_prompt <- "TCHD_0011_PROMPT"
   }
   elts <- psychTestR::new_timeline(

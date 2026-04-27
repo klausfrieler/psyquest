@@ -32,13 +32,15 @@ CMS <- function(label = "CMS",
       subscales <- setdiff(subscales, extra_scales)
     }
   }
-
+  if(!is.null(alt_intro) && alt_intro){
+    alt_intro <- "TCMS_0016_PROMPT"
+  }
   main_test(
     questionnaire_id = questionnaire_id,
     label = label,
     items = get_items(questionnaire_id, subscales = subscales),
     offset = 1,
-    alt_intro = "TCMS_0016_PROMPT",
+    alt_intro = alt_intro,
     arrange_vertically = TRUE,
     button_style = "min-width: 290px",
     dict = dict

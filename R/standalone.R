@@ -256,7 +256,7 @@ CCM_standalone <-
 CHD_standalone <-
   function(languages = psyquest::languages(),
            subscales = NULL,
-           alt_intro = NULL,
+           alt_intro = F,
            ...)
     standalone(label = "CHD",
                languages = languages,
