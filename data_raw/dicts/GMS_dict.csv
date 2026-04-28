@@ -103,7 +103,7 @@ TGMS_0013_CHOICE4;Weder noch;Neither agree nor disagree;Weder noch;Né in disacc
 TGMS_0013_CHOICE5;Stimme eher zu;Agree;Stimme eher zu;D’accordo;De acuerdo;piekrītu;わりとあてはまる
 TGMS_0013_CHOICE6;Stimme zu;Strongly agree;Stimme zu;Molto d’accordo;Muy de acuerdo;lielā mērā piekrītu;よくあてはまる
 TGMS_0013_CHOICE7;Stimme voll und ganz zu;Completely agree;Stimme voll und ganz zu;Completamente d’accordo;Completamente de acuerdo;pilnībā piekrītu;実によくあてはまる
-TGMS_0013_PROMPT;Ich finde es schwierig, Fehler festzustellen, die ein Sänger macht, selbst wenn ich das Lied kenne.;I find it difficult to spot mistakes in a performance of a song even if I know the tune.;Ich finde es schwierig, Fehler festzustellen, die ein Sänger macht, selbst wenn ich das Lied kenne.;Trovo difficile individuare gli errori nell’interpretazione di una canzone anche se conosco la melodia;Me resulta difícil detectar errores en la interpretación de una canción, incluso si conozco la melodía.;Man ir sarežģīti noteikt kļūdas dziesmas izpildījumā pat, ja es zinu šo dziesmu.;知っている曲をアーティストがどこか間違って演奏しても、なかなか気づけない
+TGMS_0013_PROMPT;Ich finde es schwierig, Fehler festzustellen, die ein Sänger macht, selbst wenn ich das Lied kenne.;I find it difficult to spot mistakes in a performance of a song even if I know the tune.;Ich finde es schwierig, Fehler festzustellen, die ein 4er macht, selbst wenn ich das Lied kenne.;Trovo difficile individuare gli errori nell’interpretazione di una canzone anche se conosco la melodia;Me resulta difícil detectar errores en la interpretación de una canción, incluso si conozco la melodía.;Man ir sarežģīti noteikt kļūdas dziesmas izpildījumā pat, ja es zinu šo dziesmu.;知っている曲をアーティストがどこか間違って演奏しても、なかなか気づけない
 TGMS_0014_CHOICE1;Stimme ganz und gar nicht zu;Completely disagree;Stimme ganz und gar nicht zu;Completamente in disaccordo;Completamente en desacuerdo;pilnībā nepiekrītu;全くあてはまらない
 TGMS_0014_CHOICE2;Stimme nicht zu;Strongly disagree;Stimme nicht zu;Molto in disaccordo;Muy en desacuerdo;lielā mērā nepiekrītu;ほとんどあてはまらない
 TGMS_0014_CHOICE3;Stimme eher nicht zu;Disagree;Stimme eher nicht zu;In disaccordo;En desacuerdo;nepiekrītu;あまりあてはまらない
@@ -335,7 +335,7 @@ TGMS_0040_CHOICE14;15;15;15;15;15;15;15
 TGMS_0040_CHOICE15;16;16;16;16;16;16;16
 TGMS_0040_CHOICE16;17;17;17;17;17;17;17
 TGMS_0040_CHOICE17;18;18;18;18;18;18;18
-TGMS_0040_CHOICE18;19;19;19;19;19;19;19
+TGMS_0040_CHOICE18;19+;19+;19+;19+;19+;19+;19+
 TGMS_0040_CHOICE19;Ich spiele kein Instrument.;I don't play any instrument.;Ich spiele kein Instrument.;Non suono nessuno strumento;No toco ningún instrumento;Es nespēlēju mūzikas instrumentu;該当しない
 TGMS_0040_CHOICE2;3;3;3;3;3;3;3
 TGMS_0040_CHOICE3;4;4;4;4;4;4;4

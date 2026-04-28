@@ -70,7 +70,7 @@ main_test_chd <- function(questionnaire_id,
 
   intro_prompt <- "TCHD_0001_PROMPT"
   if(!is.null(alt_intro) && alt_intro){
-    intro_prompt <- "TCHD_0011_PROMPT"
+    intro_prompt <- "TCHD_0101_PROMPT"
   }
   elts <- psychTestR::new_timeline(
       psychTestR::one_button_page(
@@ -234,7 +234,44 @@ main_test_chd <- function(questionnaire_id,
                     setNames(language_codes, map(languages, psychTestR::i18n)),
                     next_button_text = psychTestR::i18n("CONTINUE"))
     ),
-    dict = dict
+    dict = psyquest::psyquest_dict
+    ))
+  }
+  if ("TCHD_0012" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q11",
+                psychTestR::i18n("TCHD_0012_PROMPT"),
+                sprintf("btn%d_text", 1:2),
+                labels = map(sprintf("TCHD_0012_CHOICE%d", 1:2), psychTestR::i18n),
+                button_style = "min-width: 100px"
+      )
+    ),
+    dict = psyquest::psyquest_dict
+    ))
+  }
+
+  if ("TCHD_0013" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q12",
+                psychTestR::i18n("TCHD_0013_PROMPT"),
+                sprintf("btn%d_text", 1:2),
+                labels = map(sprintf("TCHD_0013_CHOICE%d", 1:2), psychTestR::i18n),
+                button_style = "min-width: 100px"
+      )
+    ),
+    dict = psyquest::psyquest_dict
+    ))
+  }
+  if ("TCHD_0014" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q13",
+                psychTestR::i18n("TCHD_0014_PROMPT"),
+                sprintf("btn%d_text", 1:5),
+                labels = map(sprintf("TCHD_0014_CHOICE%d", 1:5), psychTestR::i18n),
+                button_style = "min-width: 388px"
+      )
+    ),
+    dict = psyquest::psyquest_dict
     ))
   }
 
@@ -297,6 +334,14 @@ postprocess_chd <- function(label, subscale, results, scores) {
     get_plain_text_chd(results, label, 8)
 
     #stringr::str_extract(results[[label]][["q8"]], "[0-9]+")
+  } else if (subscale == "Second Language") {
+    results[[label]][["q10"]]
+  } else if (subscale == "Hearing Impairment") {
+    get_plain_text_chd(results, label, 11)
+  } else if (subscale == "Special Needs") {
+    get_plain_text_chd(results, label, 12)
+  } else if (subscale == "Music Grade") {
+    get_plain_text_chd(results, label, 13)
   } else {
     stop("Should not happen")
     mean(scores)

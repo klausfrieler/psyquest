@@ -12,7 +12,7 @@ psyquest_dict_raw <-
     #browser()
     if(nrow(problems(tmp)) > 0){
       browser()
-      print(problems(tmp))
+    print(problems(tmp))
     }
     if(!("de" %in% names(tmp))){
       tmp <- tmp  %>% mutate(de = en)
