@@ -20,6 +20,7 @@ psyquest_item_bank <-
   ungroup() %>%
   select(q_id, item_id, prompt_id = main_id, option_type = template, score_func, subscales, layout, audio_file, short_version)
 
+
 #hack for DEG
 psyquest_item_bank[psyquest_item_bank$q_id == "DEG" & psyquest_item_bank$item_id >= 6 & psyquest_item_bank$item_id <= 12,]$item_id <- psyquest_item_bank[psyquest_item_bank$q_id == "DEG" & psyquest_item_bank$item_id >= 6 & psyquest_item_bank$item_id <= 12,]$item_id - 1
 

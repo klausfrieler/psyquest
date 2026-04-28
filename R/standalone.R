@@ -630,6 +630,33 @@ IMI_standalone <-
                languages = languages,
                subscales = subscales,
                ...)
+
+#' ISM Standalone
+#'
+#' This function launches a standalone testing session for the ISM questionnaire.
+#' ISM stands for 'individual and social music listening scale.'
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), and \code{"de"} (German).
+#' The first language is selected by default.
+#'
+#' @param subscales (Character vector) The subscales to be included in the questionnaire.
+#' Possible subscales are \code{"Individual"}, and \code{"Social"}.
+#' If no subscales are provided all subscales for the questionnaire are selected.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+ISM_standalone <-
+  function(languages = psyquest::languages(),
+           subscales = NULL,
+           ...)
+    standalone(label = "ISM",
+               languages = languages,
+               subscales = subscales,
+               ...)
+
 #' JIC Standalone
 #'
 #' This function launches a standalone testing session for the JIC questionnaire.
