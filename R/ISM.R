@@ -18,20 +18,26 @@
 ISM <- function(label = "ISM",
                 dict = psyquest::psyquest_dict,
                 subscales = c(),
+                short_version = FALSE,
                 ...) {
   stopifnot(purrr::is_scalar_character(label))
 
   questionnaire_id <- "ISM"
-
+  items <- get_items(questionnaire_id,
+                     subscales = subscales)
+  if(short_version){
+    items <- items %>% filter(item_id %in% c(3, 4, 5, 6, 13, 14, 15, 16))
+  }
   main_test(
     questionnaire_id = questionnaire_id,
     label = label,
-    items = get_items(questionnaire_id,
-                      subscales = subscales),
+    items = items,
     subscales = subscales,
     offset = 0,
     arrange_vertically = TRUE,
     button_style = "min-width: 326px",
+    randomize = T,
+    style_params = list(prompt_style = "font-face:bold;font-size:20px", with_counter = F),
     dict = dict
   )
 }

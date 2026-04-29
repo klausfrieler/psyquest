@@ -4,7 +4,13 @@
 \alias{ISM}
 \title{ISM}
 \usage{
-ISM(label = "ISM", dict = psyquest::psyquest_dict, subscales = c(), ...)
+ISM(
+  label = "ISM",
+  dict = psyquest::psyquest_dict,
+  subscales = c(),
+  short_version = FALSE,
+  ...
+)
 }
 \arguments{
 \item{label}{(Character scalar) Three uppercase letter acronym of the questionnaire.

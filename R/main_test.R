@@ -185,7 +185,6 @@ main_test <- function(questionnaire_id,
                       alt_intro = NULL,
                       dict = psyquest::psyquest_dict,
                       style_params = NULL,
-                      intro_style = "margin-left:20%;margin-right:20%;text-align:justify;margin-bottom:2em",
                       randomize = FALSE) {
   elts <- c()
 
@@ -226,6 +225,10 @@ main_test <- function(questionnaire_id,
       intro_prompt <- stringr::str_interp("T${questionnaire_id}_0001_PROMPT")
       if(!is.null(alt_intro) && is.character(alt_intro)){
         intro_prompt <- alt_intro
+      }
+      intro_style <- "margin-left:20%;margin-right:20%;text-align:justify;margin-bottom:2em"
+      if(!is.null(style_params) && "intro_style" %in% names(style_params)){
+        intro_style <- style_params$intro_style
       }
       elts <- c(elts, psychTestR::new_timeline(
         psychTestR::one_button_page(

@@ -4,7 +4,12 @@
 \alias{ISM_standalone}
 \title{ISM Standalone}
 \usage{
-ISM_standalone(languages = psyquest::languages(), subscales = NULL, ...)
+ISM_standalone(
+  languages = psyquest::languages(),
+  subscales = NULL,
+  short_version = F,
+  ...
+)
 }
 \arguments{
 \item{languages}{(Character vector)

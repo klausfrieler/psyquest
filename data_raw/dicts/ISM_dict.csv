@@ -20,28 +20,28 @@ TISM_0003_CHOICE3;Disagree;Stimme eher nicht zu
 TISM_0003_CHOICE4;Agree;Stimme eher zu
 TISM_0003_CHOICE5;Strongly agree;Stimme zu
 TISM_0003_CHOICE6;Completely agree;Stimme voll und ganz zu
-TISM_0003_PROMPT;Music listening gives me strong feelings when I am alone (s);Musikhören löst bei mir starke Gefühle aus, wenn ich alleine bin (s)
+TISM_0003_PROMPT;Music listening gives me strong feelings when I am alone;Musikhören löst bei mir starke Gefühle aus, wenn ich alleine bin
 TISM_0004_CHOICE1;Completely disagree;Stimme ganz und gar nicht zu
 TISM_0004_CHOICE2;Strongly disagree;Stimme nicht zu
 TISM_0004_CHOICE3;Disagree;Stimme eher nicht zu
 TISM_0004_CHOICE4;Agree;Stimme eher zu
 TISM_0004_CHOICE5;Strongly agree;Stimme zu
 TISM_0004_CHOICE6;Completely agree;Stimme voll und ganz zu
-TISM_0004_PROMPT;I reserve my favourite tunes for moments of solitude (s);Ich hebe mir meine Lieblingsstücke für Momente der Einsamkeit auf (s)
+TISM_0004_PROMPT;I reserve my favourite tunes for moments of solitude;Ich hebe mir meine Lieblingsstücke für Momente der Einsamkeit auf
 TISM_0005_CHOICE1;Completely disagree;Stimme ganz und gar nicht zu
 TISM_0005_CHOICE2;Strongly disagree;Stimme nicht zu
 TISM_0005_CHOICE3;Disagree;Stimme eher nicht zu
 TISM_0005_CHOICE4;Agree;Stimme eher zu
 TISM_0005_CHOICE5;Strongly agree;Stimme zu
 TISM_0005_CHOICE6;Completely agree;Stimme voll und ganz zu
-TISM_0005_PROMPT;Solitary moments make my favourite songs more special (s);Momente der Einsamkeit machen meine Lieblingslieder zu etwas ganz Besonderem (s)
+TISM_0005_PROMPT;Solitary moments make my favourite songs more special;Momente der Einsamkeit machen meine Lieblingslieder zu etwas ganz Besonderem
 TISM_0006_CHOICE1;Completely disagree;Stimme ganz und gar nicht zu
 TISM_0006_CHOICE2;Strongly disagree;Stimme nicht zu
 TISM_0006_CHOICE3;Disagree;Stimme eher nicht zu
 TISM_0006_CHOICE4;Agree;Stimme eher zu
 TISM_0006_CHOICE5;Strongly agree;Stimme zu
 TISM_0006_CHOICE6;Completely agree;Stimme voll und ganz zu
-TISM_0006_PROMPT;When I listen to music on my own, I feel like I am ‘one’ with the music (s);Wenn ich alleine Musik höre, fühle ich mich eins mit der Musik (s)
+TISM_0006_PROMPT;When I listen to music on my own, I feel like I am ‘one’ with the music;Wenn ich alleine Musik höre, fühle ich mich eins mit der Musik
 TISM_0007_CHOICE1;Completely disagree;Stimme ganz und gar nicht zu
 TISM_0007_CHOICE2;Strongly disagree;Stimme nicht zu
 TISM_0007_CHOICE3;Disagree;Stimme eher nicht zu
@@ -96,28 +96,28 @@ TISM_0013_CHOICE3;Disagree;Stimme eher nicht zu
 TISM_0013_CHOICE4;Agree;Stimme eher zu
 TISM_0013_CHOICE5;Strongly agree;Stimme zu
 TISM_0013_CHOICE6;Completely agree;Stimme voll und ganz zu
-TISM_0013_PROMPT;Listening to music with friends enhances the enjoyment (s);Mit Freunden Musik zu hören, steigert den Genuss
+TISM_0013_PROMPT;Listening to music with friends enhances the enjoyment;Mit Freunden Musik zu hören, steigert den Genuss
 TISM_0014_CHOICE1;Completely disagree;Stimme ganz und gar nicht zu
 TISM_0014_CHOICE2;Strongly disagree;Stimme nicht zu
 TISM_0014_CHOICE3;Disagree;Stimme eher nicht zu
 TISM_0014_CHOICE4;Agree;Stimme eher zu
 TISM_0014_CHOICE5;Strongly agree;Stimme zu
 TISM_0014_CHOICE6;Completely agree;Stimme voll und ganz zu
-TISM_0014_PROMPT;For me, music is a social experience (s);Für mich ist Musik ein soziales Erlebnis
+TISM_0014_PROMPT;For me, music is a social experience;Für mich ist Musik ein soziales Erlebnis
 TISM_0015_CHOICE1;Completely disagree;Stimme ganz und gar nicht zu
 TISM_0015_CHOICE2;Strongly disagree;Stimme nicht zu
 TISM_0015_CHOICE3;Disagree;Stimme eher nicht zu
 TISM_0015_CHOICE4;Agree;Stimme eher zu
 TISM_0015_CHOICE5;Strongly agree;Stimme zu
 TISM_0015_CHOICE6;Completely agree;Stimme voll und ganz zu
-TISM_0015_PROMPT;I value the social connection of music as much as the music itself (s);Ich schätze die soziale Verbindung durch Musik genauso sehr wie die Musik selbst
+TISM_0015_PROMPT;I value the social connection of music as much as the music itself;Ich schätze die soziale Verbindung durch Musik genauso sehr wie die Musik selbst
 TISM_0016_CHOICE1;Completely disagree;Stimme ganz und gar nicht zu
 TISM_0016_CHOICE2;Strongly disagree;Stimme nicht zu
 TISM_0016_CHOICE3;Disagree;Stimme eher nicht zu
 TISM_0016_CHOICE4;Agree;Stimme eher zu
 TISM_0016_CHOICE5;Strongly agree;Stimme zu
 TISM_0016_CHOICE6;Completely agree;Stimme voll und ganz zu
-TISM_0016_PROMPT;I find music more enjoyable when my friends are with me (s);Ich genieße Musik mehr, wenn meine Freunde dabei sind (s)
+TISM_0016_PROMPT;I find music more enjoyable when my friends are with me;Ich genieße Musik mehr, wenn meine Freunde dabei sind
 TISM_0017_CHOICE1;Completely disagree;Stimme ganz und gar nicht zu
 TISM_0017_CHOICE2;Strongly disagree;Stimme nicht zu
 TISM_0017_CHOICE3;Disagree;Stimme eher nicht zu
@@ -131,4 +131,4 @@ TISM_0018_CHOICE3;Disagree;Stimme eher nicht zu
 TISM_0018_CHOICE4;Agree;Stimme eher zu
 TISM_0018_CHOICE5;Strongly agree;Stimme zu
 TISM_0018_CHOICE6;Completely agree;Stimme voll und ganz zu
-TISM_0018_PROMPT;c with friends creates lasting memories;Musik mit Freunden schafft bleibende Erinnerungen
+TISM_0018_PROMPT;Music with friends creates lasting memories;Musik mit Freunden schafft bleibende Erinnerungen

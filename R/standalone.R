@@ -651,10 +651,12 @@ IMI_standalone <-
 ISM_standalone <-
   function(languages = psyquest::languages(),
            subscales = NULL,
+           short_version = F,
            ...)
     standalone(label = "ISM",
                languages = languages,
                subscales = subscales,
+               short_version = short_version,
                ...)
 
 #' JIC Standalone
