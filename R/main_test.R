@@ -185,8 +185,10 @@ main_test <- function(questionnaire_id,
                       alt_intro = NULL,
                       dict = psyquest::psyquest_dict,
                       style_params = NULL,
+                      intro_style = "margin-left:20%;margin-right:20%;text-align:justify;margin-bottom:2em",
                       randomize = FALSE) {
   elts <- c()
+
   #hack, needed for MDS
   target_ext <- style_params$target
   if (questionnaire_id != "GMS" && offset != 0) {
@@ -229,7 +231,7 @@ main_test <- function(questionnaire_id,
         psychTestR::one_button_page(
           body = shiny::p(
             psychTestR::i18n(intro_prompt),
-            style = "margin-left:20%;margin-right:20%;text-align:justify;margin-bottom:2em"
+            style = intro_style,
           ),
           button_text = psychTestR::i18n("CONTINUE")
         ),

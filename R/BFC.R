@@ -26,6 +26,7 @@ BFC <- function(label = "BFC",
     offset = 1,
     arrange_vertically = TRUE,
     button_style = "min-width: 290px",
+    intro_style = "margin-left:20%;margin-right:20%;text-align:center;margin-bottom:2em",
     dict = dict
   )
 }

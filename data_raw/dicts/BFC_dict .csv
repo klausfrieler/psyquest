@@ -1,6 +1,6 @@
 key;de;en
-TBFC_0000_PROMPT;Big-Five-Inventory (BFI-10) für Eltern ;Big-Five-Inventory BFI-10) for Parents
-TBFC_0001_PROMPT;"<h4>Inwieweit treffen die folgenden Aussagen auf Ihr Kind zu?</h4>";"<h4>To what extent do the following statements apply to your child?</h4>"
+TBFC_0000_PROMPT;Big-Five-Inventory (BFI-10) für Eltern ;Big-Five-Inventory (BFI-10) for Parents
+TBFC_0001_PROMPT;"Inwieweit treffen die folgenden Aussagen auf Ihr Kind zu?";"To what extent do the following statements apply to your child?"
 TBFC_0002_CHOICE1;Trifft überhaupt nicht zu ;Disagree strongly 
 TBFC_0002_CHOICE2;Trifft eher nicht zu ;Disagree a little 
 TBFC_0002_CHOICE3;Weder noch ;Neither agree nor disagree 
