@@ -26,7 +26,6 @@ CMI <- function(label = "CMI",
   else{
     button_style <- "min-width: 80px;font-size:xx-large"
   }
-  browser()
   main_test_cmi(
     questionnaire_id = questionnaire_id,
     label = label,
