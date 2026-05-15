@@ -13,18 +13,27 @@
 #' @param ... Further arguments to be passed to \code{\link{CMI}()}.
 #' @export
 CMI <- function(label = "CMI",
+                silent = T,
                 dict = psyquest::psyquest_dict,
                 ...) {
   stopifnot(purrr::is_scalar_character(label))
 
   questionnaire_id <- "CMI"
-
+  dots <- list(...)
+  if("button_style" %in% names(dots)){
+    button_style <- dots$button_style
+  }
+  else{
+    button_style <- "min-width: 80px;font-size:xx-large"
+  }
+  browser()
   main_test_cmi(
     questionnaire_id = questionnaire_id,
     label = label,
     items = get_items(questionnaire_id),
     offset = 0,
-    button_style = "min-width: 80px;font-size:xx-large",
+    silent = silent,
+    button_style = button_style,
     dict = dict
   )
 
@@ -37,6 +46,7 @@ main_test_cmi <- function(questionnaire_id,
                       subscales = c(),
                       offset = 0,
                       button_style = "",
+                      silent = T,
                       dict = psyquest::psyquest_dict,
                       style_params = NULL) {
   elts <- c()
@@ -64,29 +74,50 @@ main_test_cmi <- function(questionnaire_id,
         bs <- button_style[2]
       }
     }
+    if(silent){
+      item_page <- psychTestR::new_timeline(
+        psychTestR::NAFC_page(
+          label = question_label,
+          prompt = get_prompt(
+            counter,
+            length(question_numbers),
+            sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
+            with_prompt_head = F,
+            style_params
+          ),
 
-    audio_url <- sprintf("https://s3.eu-west-1.amazonaws.com/media.gold-msi.org/test_materials/CMI/TCMI_%04d_PROMPT.mp3", question_numbers[counter] )
-
-    item_page <- psychTestR::new_timeline(
-      psychTestR::audio_NAFC_page(
-        url = audio_url,
-        label = question_label,
-        prompt = get_prompt(
-          counter,
-          length(question_numbers),
-          sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
-          with_prompt_head = F,
-          style_params
+          choices = choices,
+          arrange_vertically = FALSE,
+          button_style = bs,
+          labels = map(choice_ids, psychTestR::i18n)
         ),
-        btn_play_prompt = shiny::span("▶", style = "font-size:xx-large"),
+        dict = dict
+      )
+    }
+    else{
+      audio_url <- sprintf("https://s3.eu-west-1.amazonaws.com/media.gold-msi.org/test_materials/CMI/TCMI_%04d_PROMPT.mp3", question_numbers[counter] )
+      item_page <- psychTestR::new_timeline(
+        psychTestR::audio_NAFC_page(
+          url = audio_url,
+          label = question_label,
+          prompt = get_prompt(
+            counter,
+            length(question_numbers),
+            sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
+            with_prompt_head = F,
+            style_params
+          ),
+          btn_play_prompt = shiny::span("▶", style = "font-size:xx-large"),
 
-        choices = choices,
-        arrange_choices_vertically = FALSE,
-        button_style = bs,
-        labels = map(choice_ids, psychTestR::i18n)
-      ),
-      dict = dict
-    )
+          choices = choices,
+          arrange_choices_vertically = FALSE,
+          button_style = bs,
+          labels = map(choice_ids, psychTestR::i18n)
+        ),
+        dict = dict
+      )
+
+    }
     #elts <- psychTestR::join(elts, item_page)
     item_pages <- c(item_pages, item_page)
   }

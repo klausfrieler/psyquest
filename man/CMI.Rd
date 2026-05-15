@@ -4,7 +4,7 @@
 \alias{CMI}
 \title{CMI}
 \usage{
-CMI(label = "CMI", dict = psyquest::psyquest_dict, ...)
+CMI(label = "CMI", silent = T, dict = psyquest::psyquest_dict, ...)
 }
 \arguments{
 \item{label}{(Character scalar) Three uppercase letter acronym of the questionnaire.
