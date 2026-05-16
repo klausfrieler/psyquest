@@ -26,6 +26,27 @@ get_month <- function(date) {
   as.numeric(strsplit(as.character(date), "-")[[1]][2])
 }
 
+thumb_scale <- function(num_elements = 5,
+                        labels = c("👎", "🤷", "👍")){
+  has_middle <- num_elements %% 2 == 1
+  num_thumbs <- floor(num_elements/2)
+  range <- c(seq(-num_thumbs,-1), if(has_middle) 0 , seq(1, num_thumbs))
+  thumb_labels <- c()
+  for(i in 1:num_elements){
+    pos <- range[i]
+    if(pos < 0){
+      thumb_labels <- c(thumb_labels, paste(rep(labels[1], abs(range[i])), collapse = ""))
+    }
+    if(pos > 0){
+      thumb_labels <- c(thumb_labels, paste(rep(labels[3], abs(range[i])), collapse = ""))
+    }
+    if(pos == 0){
+      thumb_labels <- c(thumb_labels, labels[2])
+    }
+
+  }
+  thumb_labels
+}
 #'get_tests
 #'
 #'Retrieves all available tests

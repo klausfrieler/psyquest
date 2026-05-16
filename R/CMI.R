@@ -14,6 +14,7 @@
 #' @export
 CMI <- function(label = "CMI",
                 silent = T,
+                use_thumbscale = F,
                 dict = psyquest::psyquest_dict,
                 ...) {
   stopifnot(purrr::is_scalar_character(label))
@@ -24,7 +25,7 @@ CMI <- function(label = "CMI",
     button_style <- dots$button_style
   }
   else{
-    button_style <- "min-width: 80px;font-size:xx-large"
+    button_style <- "min-width: 250px;"
   }
   main_test_cmi(
     questionnaire_id = questionnaire_id,
@@ -32,6 +33,7 @@ CMI <- function(label = "CMI",
     items = get_items(questionnaire_id),
     offset = 0,
     silent = silent,
+    use_thumbscale = use_thumbscale,
     button_style = button_style,
     dict = dict
   )
@@ -46,6 +48,7 @@ main_test_cmi <- function(questionnaire_id,
                       offset = 0,
                       button_style = "",
                       silent = T,
+                      use_thumbscale = F,
                       dict = psyquest::psyquest_dict,
                       style_params = NULL) {
   elts <- c()
@@ -60,9 +63,13 @@ main_test_cmi <- function(questionnaire_id,
     item_bank_row <-
       items %>%
       filter(stringr::str_detect(prompt_id, sprintf("T%s_%04d", questionnaire_id, question_numbers[counter])))
-    num_of_options <- strsplit(item_bank_row$option_type, "-")[[1]][1]
+    num_of_options <- strsplit(item_bank_row$option_type, "-")[[1]][1] %>% as.integer()
     choices <- sprintf("btn%d_text", 1:num_of_options)
-    choice_ids <- sprintf("T%s_%04d_CHOICE%d", questionnaire_id, question_numbers[counter], 1:num_of_options)
+    choice_ids <- sprintf("T%s_%04d_CHOICE%d",
+                          questionnaire_id,
+                          question_numbers[counter],
+                          1:num_of_options)
+
     bs <- button_style[1]
     #item_bank_row$layout <- NA
     #arrange_vertically = FALSE
@@ -73,48 +80,104 @@ main_test_cmi <- function(questionnaire_id,
         bs <- button_style[2]
       }
     }
+    #choice_labels <- map(choice_ids, psychTestR::i18n)
+    thumb_labels <- thumb_scale(num_of_options)
     if(silent){
-      item_page <- psychTestR::new_timeline(
-        psychTestR::NAFC_page(
-          label = question_label,
-          prompt = get_prompt(
-            counter,
-            length(question_numbers),
-            sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
-            with_prompt_head = F,
-            style_params
-          ),
+      if(use_thumbscale){
+        item_page <- psychTestR::new_timeline(
+          psychTestR::NAFC_page(
+            label = question_label,
+            prompt = get_prompt(
+              counter,
+              length(question_numbers),
+              sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
+              with_prompt_head = F,
+              style_params
+            ),
 
-          choices = choices,
-          arrange_vertically = FALSE,
-          button_style = bs,
-          labels = map(choice_ids, psychTestR::i18n)
-        ),
-        dict = dict
-      )
+            choices = choices,
+            arrange_vertically = FALSE,
+            button_style = bs,
+            labels = thumb_labels
+          ),
+          dict = dict
+        )
+
+      }
+      else{
+
+        item_page <- psychTestR::new_timeline(
+
+          psychTestR::NAFC_page(
+            label = question_label,
+
+            prompt = get_prompt(
+              counter,
+              length(question_numbers),
+              sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
+              with_prompt_head = F,
+              style_params
+            ),
+
+            choices = choices,
+            arrange_vertically = TRUE,
+            button_style = bs,
+            labels = map(choice_ids, psychTestR::i18n)
+          ),
+          dict = dict
+        )
+
+      }
     }
     else{
-      audio_url <- sprintf("https://s3.eu-west-1.amazonaws.com/media.gold-msi.org/test_materials/CMI/TCMI_%04d_PROMPT.mp3", question_numbers[counter] )
-      item_page <- psychTestR::new_timeline(
-        psychTestR::audio_NAFC_page(
-          url = audio_url,
-          label = question_label,
-          prompt = get_prompt(
-            counter,
-            length(question_numbers),
-            sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
-            with_prompt_head = F,
-            style_params
-          ),
-          btn_play_prompt = shiny::span("▶", style = "font-size:xx-large"),
+      if(use_thumbscale){
+        audio_url <- sprintf("https://s3.eu-west-1.amazonaws.com/media.gold-msi.org/test_materials/CMI/TCMI_%04d_PROMPT.mp3", question_numbers[counter] )
+        item_page <- psychTestR::new_timeline(
+          psychTestR::audio_NAFC_page(
+            url = audio_url,
+            label = question_label,
+            prompt = get_prompt(
+              counter,
+              length(question_numbers),
+              sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
+              with_prompt_head = F,
+              style_params
+            ),
+            btn_play_prompt = shiny::span("▶", style = "font-size:xx-large"),
 
-          choices = choices,
-          arrange_choices_vertically = FALSE,
-          button_style = bs,
-          labels = map(choice_ids, psychTestR::i18n)
-        ),
-        dict = dict
-      )
+            choices = choices,
+            arrange_choices_vertically = FALSE,
+            button_style = bs,
+            labels = thumb_labels
+          ),
+          dict = dict
+        )
+
+      }
+      else{
+        audio_url <- sprintf("https://s3.eu-west-1.amazonaws.com/media.gold-msi.org/test_materials/CMI/TCMI_%04d_PROMPT.mp3", question_numbers[counter] )
+        item_page <- psychTestR::new_timeline(
+          psychTestR::audio_NAFC_page(
+            url = audio_url,
+            label = question_label,
+            prompt = get_prompt(
+              counter,
+              length(question_numbers),
+              sprintf("T%s_%04d_PROMPT", questionnaire_id, question_numbers[counter]),
+              with_prompt_head = F,
+              style_params
+            ),
+            btn_play_prompt = shiny::span("▶", style = "font-size:xx-large"),
+
+            choices = choices,
+            arrange_choices_vertically = TRUE,
+            button_style = bs,
+            labels =  map(choice_ids, psychTestR::i18n)
+          ),
+          dict = dict
+        )
+
+      }
 
     }
     #elts <- psychTestR::join(elts, item_page)
