@@ -165,3 +165,27 @@ postprocess_mhe <- function(questionnaire_id, values) {
   }
   value
 }
+## needed for new MHC
+score_MHC <- function(mother_instrument, mother_choir, father_instrument, father_choir,
+                      music_motivation,  music_practising){
+  scoring_map <- c(-0.188,  0.822, 1.48, 2.035, 2.603)
+  raws <- list()
+  raws[["parents"]] <- scoring_map[ 1+ na.omit(as.integer(mother_instrument == "yes") + as.integer(mother_choir == "yes") + as.integer(father_instrument =="yes") + as.integer(father_choir == "yes"))]
+  raws[["motivation"]] <- music_motivation
+  raws[["practising"]] <- music_practising
+
+  score_stats <- data.frame(id     = c("parents", "motivation", "practising"),
+                            mean   = c(0.1143363, 3.156951, 2.769058),
+                            sd     = c(0.5637453, 1.116791, 1.258868),
+                            weight = c(0.57,      0.87,     0.88))
+  raws <- map(names(raws), function(var){
+      weight <- score_stats[score_stats$id == var, "weight"][1]
+      mean <- score_stats[score_stats$id == var, "mean"][1]
+      sd <- score_stats[score_stats$id == var, "sd"][1]
+      weight * (raws[[var]] - mean) / sd
+
+    })
+  raws[[1]] + raws[[2]] + raws[[3]]
+
+}
+
