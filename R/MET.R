@@ -26,6 +26,7 @@ MET <- function(label = "MET",
     offset = 1,
     arrange_vertically = FALSE,
     button_style = "min-width: 290px",
-    style_params = list(...)$style_params
+    style_params = list(...)$style_params,
+    dict = dict
   )
 }

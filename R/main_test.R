@@ -36,18 +36,12 @@ scoring <- function(questionnaire_id, label, items, subscales = c(), short_versi
 
   psychTestR::code_block(function(state, ...) {
     results <- psychTestR::get_results(state = state, complete = FALSE) %>% as.list()
-
-    # scores_raw_old <- map(results, function(result) {
-    #   browser()
-    #   result <- get(label, results)
-    #   as.numeric(gsub("[^0-9]", "", result))
-    # })[[1]]
+    #browser()
 
     raw_data <- results[[label]]
     if(is.null(raw_data)){
       stop(sprintf("Invalid label: %s", label))
     }
-    #browser()
     item_scores <- raw_data[stringr::str_detect(names(raw_data), "^q")]
     item_ids <- as.numeric(stringr::str_extract(names(raw_data), "[0-9]+"))
     item_ids <- item_ids[!is.na(item_ids)]
@@ -105,6 +99,9 @@ scoring <- function(questionnaire_id, label, items, subscales = c(), short_versi
     if(questionnaire_id == "BTQ"){
       names(results[["BTQ"]]) <- names(subscale_list)
     }
+    if(questionnaire_id == "MUS"){
+      browser()
+    }
     postprocess(questionnaire_id, label, subscale_list, short_version, state, results)
   })
 }
@@ -134,6 +131,10 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
       }
     } else if (questionnaire_id == "BTQ") {
       postprocess_btq(questionnaire_id, subscale, results)
+    } else if (questionnaire_id == "CHD") {
+      postprocess_chd(questionnaire_id, subscale, results)
+    } else if (questionnaire_id == "CMS") {
+      postprocess_cms(questionnaire_id, subscale, results, scores)
     } else if (questionnaire_id == "MHE") {
       postprocess_mhe(questionnaire_id, subscale_list[["General"]])
     } else if (questionnaire_id == "QHC") {
@@ -156,6 +157,8 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
         subscale <- "class"
       }
       postprocess_ses(subscale, results, scores)
+    } else if (questionnaire_id == "SWB") {
+      mean(scores -1)
     } else if (questionnaire_id == "MDS" && subscale == "Target") {
       scores
     } else {
@@ -179,10 +182,12 @@ main_test <- function(questionnaire_id,
                       offset = 1,
                       arrange_vertically = TRUE,
                       button_style = "",
+                      alt_intro = NULL,
                       dict = psyquest::psyquest_dict,
                       style_params = NULL,
                       randomize = FALSE) {
   elts <- c()
+
   #hack, needed for MDS
   target_ext <- style_params$target
   if (questionnaire_id != "GMS" && offset != 0) {
@@ -217,11 +222,19 @@ main_test <- function(questionnaire_id,
       )
     }
     else{
+      intro_prompt <- stringr::str_interp("T${questionnaire_id}_0001_PROMPT")
+      if(!is.null(alt_intro) && is.character(alt_intro)){
+        intro_prompt <- alt_intro
+      }
+      intro_style <- "margin-left:20%;margin-right:20%;text-align:justify;margin-bottom:2em"
+      if(!is.null(style_params) && "intro_style" %in% names(style_params)){
+        intro_style <- style_params$intro_style
+      }
       elts <- c(elts, psychTestR::new_timeline(
         psychTestR::one_button_page(
           body = shiny::p(
-            psychTestR::i18n(stringr::str_interp("T${questionnaire_id}_0001_PROMPT"), ),
-            style = "margin-left:20%;margin-right:20%;text-align:justify;margin-bottom:2em"
+            psychTestR::i18n(intro_prompt),
+            style = intro_style,
           ),
           button_text = psychTestR::i18n("CONTINUE")
         ),

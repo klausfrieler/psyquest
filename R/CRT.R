@@ -25,7 +25,8 @@ CRT <- function(label = "CRT",
     items = get_items(questionnaire_id),
     language = language,
     offset = 1,
-    arrange_vertically = TRUE
+    arrange_vertically = TRUE,
+    dict = dict
   )
 }
 
@@ -47,7 +48,7 @@ include_last_items <- function(state, ...){
   show_last_items
 }
 
-main_test_crt <- function(questionnaire_id, label, items, language, offset = 1, arrange_vertically = TRUE) {
+main_test_crt <- function(questionnaire_id, label, items, language, offset = 1, arrange_vertically = TRUE, dict) {
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
   elts <- c()
@@ -60,7 +61,7 @@ main_test_crt <- function(questionnaire_id, label, items, language, offset = 1, 
                       validate = NULL,
                       input_label = psychTestR::i18n("TCRT_0002_CHOICE1")
                       ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -74,7 +75,7 @@ main_test_crt <- function(questionnaire_id, label, items, language, offset = 1, 
                       input_label = psychTestR::i18n("TCRT_0003_CHOICE1")
       )
       ,
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -88,7 +89,7 @@ main_test_crt <- function(questionnaire_id, label, items, language, offset = 1, 
                       input_label = psychTestR::i18n("TCRT_0004_CHOICE1")
       )
       ,
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
   if ("TCRT_0005" %in% prompt_ids) {
@@ -100,7 +101,7 @@ main_test_crt <- function(questionnaire_id, label, items, language, offset = 1, 
                 arrange_vertically = TRUE,
                 button_style = "min-width: 200px"
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ),
     psychTestR::code_block(function(state, ...){
       res <- psychTestR::get_results(state, complete = F) %>% as.list()
@@ -126,7 +127,7 @@ main_test_crt <- function(questionnaire_id, label, items, language, offset = 1, 
                                                force_answer = FALSE,
                                                trigger_button_text = psychTestR::i18n("CONTINUE"),
                                                failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-                                 dict = psyquest::psyquest_dict
+                                 dict = dict
                                )))
   }
 
@@ -142,7 +143,7 @@ main_test_crt <- function(questionnaire_id, label, items, language, offset = 1, 
                                            arrange_vertically = TRUE,
                                            button_style = "min-width: 200px"
                                  ),
-                                 dict = psyquest::psyquest_dict
+                                 dict = dict
                                )))
   }
 

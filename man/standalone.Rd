@@ -16,6 +16,7 @@ standalone(
   with_id = FALSE,
   validate_id = "auto",
   randomize = FALSE,
+  alt_intro = NULL,
   ...
 )
 }

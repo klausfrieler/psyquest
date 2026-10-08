@@ -20,11 +20,12 @@ MPA <- function(label = "MPA",
   main_test_mpa(
     label = label,
     button_style = "min-width: 290px",
-    style_params = list(...)$style_params
+    style_params = list(...)$style_params,
+    dict = dict
   )
 }
 
-main_test_mpa <- function(label = label, button_style, style_params){
+main_test_mpa <- function(label = label, button_style, style_params, dict){
   #browser()
   items <- get_items("MPA") %>% filter(subscales != "Playing an instrument")
   first_page <- psychTestR::new_timeline(
@@ -37,7 +38,7 @@ main_test_mpa <- function(label = label, button_style, style_params){
       button_style = "min-width:100px",
       save_answer = T
   ),
-  dict = psyquest::psyquest_dict)
+  dict = dict)
 
   main_test <- main_test("MPA",
                          label = label,
@@ -46,7 +47,7 @@ main_test_mpa <- function(label = label, button_style, style_params){
                          arrange_vertically = T,
                          button_style = button_style,
                          style_params = style_params,
-                         dict = psyquest::psyquest_dict)
+                         dict = dict)
   mpa <- psychTestR::join(
     psychTestR::begin_module("MPA_intro"),
     first_page,

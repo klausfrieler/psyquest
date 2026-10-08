@@ -4,7 +4,7 @@
 \alias{get_item_info}
 \title{get_item_info}
 \usage{
-get_item_info(questionnaire_id, subscales, language = "en")
+get_item_info(questionnaire_id, subscales = c(), language = "en")
 }
 \arguments{
 \item{questionnaire_id}{(three letter string) Questionnaire ID.}

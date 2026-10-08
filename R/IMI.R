@@ -33,6 +33,7 @@ IMI <- function(label = "IMI",
     subscales = subscales,
     offset = 1,
     arrange_vertically = TRUE,
-    button_style = "min-width: 336px"
+    button_style = "min-width: 336px",
+    dict = dict
   )
 }

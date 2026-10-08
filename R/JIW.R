@@ -32,6 +32,7 @@ JIW <- function(label = "JIW",
     subscales = subscales,
     offset = 1,
     arrange_vertically = TRUE,
-    button_style = "min-width: 300px"
+    button_style = "min-width: 300px",
+    dict = dict
   )
 }

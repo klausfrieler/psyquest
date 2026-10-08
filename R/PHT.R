@@ -43,6 +43,7 @@ PHT <- function(label = "PHT",
     arrange_vertically = TRUE,
     randomize = randomize,
     button_style = "min-width: 250px",
-    style_params = style_params
+    style_params = style_params,
+    dict = dict
   )
 }

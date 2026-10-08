@@ -25,7 +25,8 @@ MHP <- function(label = "MHP",
     items = get_items(questionnaire_id),
     offset = 1L,
     arrange_vertically = TRUE,
-    button_style = "min-width: 290px"
+    button_style = "min-width: 290px",
+    dict = dict
   )
 
 }

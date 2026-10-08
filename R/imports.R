@@ -16,6 +16,12 @@ NULL
 #' @importFrom dplyr "select"
 NULL
 
+#' @importFrom dplyr "sym"
+NULL
+
+#' @importFrom dplyr "all_of"
+NULL
+
 #' @importFrom tibble "tibble"
 NULL
 

@@ -1,21 +1,21 @@
 library(tidyverse)
 
 psyquest_dict_raw <-
-  map_dfr(list.files("./data_raw/dicts/",  full.names = TRUE), function(filepath) {
+  map_dfr(list.files("./data_raw/dicts/",  pattern = "*.csv$", full.names = TRUE), function(filepath) {
     #dict file must be UTF8 encoded!
-    print(filepath)
      if(str_detect(filepath, "BMR")){
        #browser()
      }
     if(str_detect(filepath, "dummy_debug")){
       return(NULL)
     }
+    message(sprintf("Reading: %s", basename(filepath)))
     #tmp <- read.table(filepath, sep = ";", stringsAsFactors = FALSE, header = TRUE, fileEncoding = "utf8")
-    tmp <- readr::read_csv2(filepath, col_types = cols())
+    tmp <- suppressMessages(readr::read_csv2(filepath, col_types = cols()))
     #browser()
     if(nrow(problems(tmp)) > 0){
       browser()
-      print(problems(tmp))
+    print(problems(tmp))
     }
     if(!("de" %in% names(tmp))){
       tmp <- tmp  %>% mutate(de = en)
@@ -32,6 +32,10 @@ psyquest_dict_raw <-
     if(!("lv" %in% names(tmp))){
       #print(tmp$key[1])
       tmp <- tmp  %>% mutate(lv = en)
+    }
+    if(!("ar" %in% names(tmp))){
+      #print(tmp$key[1])
+      tmp <- tmp  %>% mutate(ar = en)
     }
 
     tmp %>% filter(nchar(de) != 0, nchar(en) != 0)

@@ -25,6 +25,7 @@ IBQ <- function(label = "IBQ",
     items = get_items(questionnaire_id),
     offset = 0,
     arrange_vertically = TRUE,
-    button_style = "min-width: 250px"
+    button_style = "min-width: 250px",
+    dict = dict
   )
 }

@@ -4,7 +4,7 @@
 \alias{PAC_standalone}
 \title{PAC Standalone}
 \usage{
-PAC_standalone(languages = psyquest::languages(), ...)
+PAC_standalone(languages = psyquest::languages(), exclude_dance = FALSE, ...)
 }
 \arguments{
 \item{languages}{(Character vector)

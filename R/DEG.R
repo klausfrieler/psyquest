@@ -73,7 +73,8 @@ DEG <- function(label = "DEG",
     arrange_vertically = TRUE,
     residence_countries = residence_countries,
     formative_countries = residence_countries,
-    show_month = show_month
+    show_month = show_month,
+    dict = dict
   )
 }
 
@@ -86,7 +87,8 @@ main_test_deg <- function(questionnaire_id,
                           offset = 1,
                           arrange_vertically = TRUE,
                           nationalities = NULL, formative_countries = NULL, residence_countries = NULL,
-                          show_month = TRUE) {
+                          show_month = TRUE,
+                          dict) {
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
   elts <- c()
@@ -117,7 +119,7 @@ main_test_deg <- function(questionnaire_id,
                   }
         )
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -128,7 +130,7 @@ main_test_deg <- function(questionnaire_id,
                         psychTestR::i18n("TDEG_0003_PROMPT"),
                         button_text = psychTestR::i18n("CONTINUE"))
         )),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -141,7 +143,7 @@ main_test_deg <- function(questionnaire_id,
                 button_style = "min-width: 188px"
                 )
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -154,7 +156,7 @@ main_test_deg <- function(questionnaire_id,
                     setNames(names(countries), map(countries, psychTestR::i18n)),
                     next_button_text = psychTestR::i18n("CONTINUE"))
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -166,7 +168,7 @@ main_test_deg <- function(questionnaire_id,
                 setNames(names(formative_countries), map(formative_countries, psychTestR::i18n)),
                 next_button_text = psychTestR::i18n("CONTINUE"))
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -194,7 +196,7 @@ main_test_deg <- function(questionnaire_id,
                 setNames(language_codes, map(languages, psychTestR::i18n)),
                 next_button_text = psychTestR::i18n("CONTINUE"))
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -219,7 +221,7 @@ main_test_deg <- function(questionnaire_id,
                 setNames(language_codes, map(languages, psychTestR::i18n)),
                 next_button_text = psychTestR::i18n("CONTINUE"))
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -231,7 +233,7 @@ main_test_deg <- function(questionnaire_id,
                 max_year = max_year,
                 show_month = show_month)
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -244,7 +246,7 @@ main_test_deg <- function(questionnaire_id,
                 button_style = "min-width: 300px;"
                 )
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -257,7 +259,7 @@ main_test_deg <- function(questionnaire_id,
                 button_style = "min-width: 162px;"
                 )
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -269,7 +271,7 @@ main_test_deg <- function(questionnaire_id,
                     setNames(names(residence_countries), map(residence_countries, psychTestR::i18n)),
                     next_button_text = psychTestR::i18n("CONTINUE"))
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
   if ("TDEG_0014" %in% prompt_ids) {
@@ -281,7 +283,7 @@ main_test_deg <- function(questionnaire_id,
                 button_style = "min-width: 500px;"
       )
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
   if ("TDEG_0015" %in% prompt_ids) {
@@ -295,7 +297,7 @@ main_test_deg <- function(questionnaire_id,
                 on_complete = NULL
       )
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -312,7 +314,7 @@ main_test_deg <- function(questionnaire_id,
                 on_complete = NULL
       )
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -327,7 +329,7 @@ main_test_deg <- function(questionnaire_id,
                 on_complete = NULL
       )
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -378,7 +380,7 @@ main_test_deg <- function(questionnaire_id,
                 on_complete = NULL
       )
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -390,6 +392,21 @@ main_test_deg <- function(questionnaire_id,
                 labels = map(sprintf("TDEG_0017_CHOICE%d", 1:4), psychTestR::i18n),
                 arrange_vertically = TRUE,
                 button_style = "min-width: 300px",
+                on_complete = NULL
+      )
+    ),
+    dict = psyquest::psyquest_dict
+    ))
+  }
+
+  if ("TDEG_0022" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q22",
+                psychTestR::i18n("TDEG_0022_PROMPT"),
+                sprintf("btn%d_text", 1:2),
+                labels = map(sprintf("TDEG_0022_CHOICE%d", 1:2), psychTestR::i18n),
+                arrange_vertically = FALSE,
+                button_style = "min-width: 100px",
                 on_complete = NULL
       )
     ),
@@ -463,6 +480,8 @@ postprocess_deg <- function(label, subscale, results, scores) {
   } else if (subscale == "Handedness") {
     c(as.numeric(gsub("[^0-9]", "", results[[label]][["q10"]])),
       as.numeric(gsub("[^0-9]", "", results[[label]][["q11"]])))
+  } else if (subscale == "Born Here") {
+    c("yes", "no")[as.integer(stringr::str_extract(results[[label]][["q22"]], "[0-9]+"))]
   } else {
     mean(scores)
   }

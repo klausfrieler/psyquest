@@ -4,7 +4,14 @@
 \alias{CMS}
 \title{CMS}
 \usage{
-CMS(label = "CMS", dict = psyquest::psyquest_dict, ...)
+CMS(
+  label = "CMS",
+  subscales = c(),
+  with_extra_scales = F,
+  dict = psyquest::psyquest_dict,
+  alt_intro = F,
+  ...
+)
 }
 \arguments{
 \item{label}{(Character scalar) Three uppercase letter acronym of the questionnaire.

@@ -1,0 +1,123 @@
+key;de;en
+TPNS_0000_PROMPT;Positiver und Negativer Affekt Fragebogen (PANAS);Positive and Negative Affect Schedule (PANAS)
+TPNS_0001_PROMPT;"Nun möchten wir gerne von Ihnen wissen, wie Sie sich fühlen. Die folgenden Wörter beschreiben unterschiedliche Gefühle und Empfindungen. Lesen Sie jedes Wort und wählen Sie die Intensität. Sie haben die Möglichkeit, zwischen fünf Abstufungen zu wählen. Geben Sie bitte an, wie Sie sich im Allgemeinen fühlen.";"Now we would like to know how you feel. The following words describe different kinds of feelings and perception. Read every word and select the intensity by pressing the appropiate button. You have the choice between five gradations. Please indicate how you generally feel."
+TPNS_0002_CHOICE1;gar nicht;not at all 
+TPNS_0002_CHOICE2;ein bisschen;a little 
+TPNS_0002_CHOICE3;einigermaßen;moderately 
+TPNS_0002_CHOICE4;erheblich;quite a bit 
+TPNS_0002_CHOICE5;äußerst;extremely
+TPNS_0002_PROMPT;aktiv;active 
+TPNS_0003_CHOICE1;gar nicht;not at all 
+TPNS_0003_CHOICE2;ein bisschen;a little 
+TPNS_0003_CHOICE3;einigermaßen;moderately 
+TPNS_0003_CHOICE4;erheblich;quite a bit 
+TPNS_0003_CHOICE5;äußerst;extremely
+TPNS_0003_PROMPT;bekümmert;distressed
+TPNS_0004_CHOICE1;gar nicht;not at all 
+TPNS_0004_CHOICE2;ein bisschen;a little 
+TPNS_0004_CHOICE3;einigermaßen;moderately 
+TPNS_0004_CHOICE4;erheblich;quite a bit 
+TPNS_0004_CHOICE5;äußerst;extremely
+TPNS_0004_PROMPT;interessiert;interested
+TPNS_0005_CHOICE1;gar nicht;not at all 
+TPNS_0005_CHOICE2;ein bisschen;a little 
+TPNS_0005_CHOICE3;einigermaßen;moderately 
+TPNS_0005_CHOICE4;erheblich;quite a bit 
+TPNS_0005_CHOICE5;äußerst;extremely
+TPNS_0005_PROMPT;freudig erregt;excited
+TPNS_0006_CHOICE1;gar nicht;not at all 
+TPNS_0006_CHOICE2;ein bisschen;a little 
+TPNS_0006_CHOICE3;einigermaßen;moderately 
+TPNS_0006_CHOICE4;erheblich;quite a bit 
+TPNS_0006_CHOICE5;äußerst;extremely
+TPNS_0006_PROMPT;verärgert;upset
+TPNS_0007_CHOICE1;gar nicht;not at all 
+TPNS_0007_CHOICE2;ein bisschen;a little 
+TPNS_0007_CHOICE3;einigermaßen;moderately 
+TPNS_0007_CHOICE4;erheblich;quite a bit 
+TPNS_0007_CHOICE5;äußerst;extremely
+TPNS_0007_PROMPT;stark;strong
+TPNS_0008_CHOICE1;gar nicht;not at all 
+TPNS_0008_CHOICE2;ein bisschen;a little 
+TPNS_0008_CHOICE3;einigermaßen;moderately 
+TPNS_0008_CHOICE4;erheblich;quite a bit 
+TPNS_0008_CHOICE5;äußerst;extremely
+TPNS_0008_PROMPT;schuldig;guilty
+TPNS_0009_CHOICE1;gar nicht;not at all 
+TPNS_0009_CHOICE2;ein bisschen;a little 
+TPNS_0009_CHOICE3;einigermaßen;moderately 
+TPNS_0009_CHOICE4;erheblich;quite a bit 
+TPNS_0009_CHOICE5;äußerst;extremely
+TPNS_0009_PROMPT;erschrocken;scared
+TPNS_0010_CHOICE1;gar nicht;not at all 
+TPNS_0010_CHOICE2;ein bisschen;a little 
+TPNS_0010_CHOICE3;einigermaßen;moderately 
+TPNS_0010_CHOICE4;erheblich;quite a bit 
+TPNS_0010_CHOICE5;äußerst;extremely
+TPNS_0010_PROMPT;feindselig;hostile
+TPNS_0011_CHOICE1;gar nicht;not at all 
+TPNS_0011_CHOICE2;ein bisschen;a little 
+TPNS_0011_CHOICE3;einigermaßen;moderately 
+TPNS_0011_CHOICE4;erheblich;quite a bit 
+TPNS_0011_CHOICE5;äußerst;extremely
+TPNS_0011_PROMPT;angeregt;inspired
+TPNS_0012_CHOICE1;gar nicht;not at all 
+TPNS_0012_CHOICE2;ein bisschen;a little 
+TPNS_0012_CHOICE3;einigermaßen;moderately 
+TPNS_0012_CHOICE4;erheblich;quite a bit 
+TPNS_0012_CHOICE5;äußerst;extremely
+TPNS_0012_PROMPT;stolz;proud
+TPNS_0013_CHOICE1;gar nicht;not at all 
+TPNS_0013_CHOICE2;ein bisschen;a little 
+TPNS_0013_CHOICE3;einigermaßen;moderately 
+TPNS_0013_CHOICE4;erheblich;quite a bit 
+TPNS_0013_CHOICE5;äußerst;extremely
+TPNS_0013_PROMPT;gereizt;irritable
+TPNS_0014_CHOICE1;gar nicht;not at all 
+TPNS_0014_CHOICE2;ein bisschen;a little 
+TPNS_0014_CHOICE3;einigermaßen;moderately 
+TPNS_0014_CHOICE4;erheblich;quite a bit 
+TPNS_0014_CHOICE5;äußerst;extremely
+TPNS_0014_PROMPT;begeistert;enthusiastic
+TPNS_0015_CHOICE1;gar nicht;not at all 
+TPNS_0015_CHOICE2;ein bisschen;a little 
+TPNS_0015_CHOICE3;einigermaßen;moderately 
+TPNS_0015_CHOICE4;erheblich;quite a bit 
+TPNS_0015_CHOICE5;äußerst;extremely
+TPNS_0015_PROMPT;beschämt;ashamed
+TPNS_0016_CHOICE1;gar nicht;not at all 
+TPNS_0016_CHOICE2;ein bisschen;a little 
+TPNS_0016_CHOICE3;einigermaßen;moderately 
+TPNS_0016_CHOICE4;erheblich;quite a bit 
+TPNS_0016_CHOICE5;äußerst;extremely
+TPNS_0016_PROMPT;wach;alert
+TPNS_0017_CHOICE1;gar nicht;not at all 
+TPNS_0017_CHOICE2;ein bisschen;a little 
+TPNS_0017_CHOICE3;einigermaßen;moderately 
+TPNS_0017_CHOICE4;erheblich;quite a bit 
+TPNS_0017_CHOICE5;äußerst;extremely
+TPNS_0017_PROMPT;nervös;nervous
+TPNS_0018_CHOICE1;gar nicht;not at all 
+TPNS_0018_CHOICE2;ein bisschen;a little 
+TPNS_0018_CHOICE3;einigermaßen;moderately 
+TPNS_0018_CHOICE4;erheblich;quite a bit 
+TPNS_0018_CHOICE5;äußerst;extremely
+TPNS_0018_PROMPT;entschlossen;determined
+TPNS_0019_CHOICE1;gar nicht;not at all 
+TPNS_0019_CHOICE2;ein bisschen;a little 
+TPNS_0019_CHOICE3;einigermaßen;moderately 
+TPNS_0019_CHOICE4;erheblich;quite a bit 
+TPNS_0019_CHOICE5;äußerst;extremely
+TPNS_0019_PROMPT;aufmerksam;attentive
+TPNS_0020_CHOICE1;gar nicht;not at all 
+TPNS_0020_CHOICE2;ein bisschen;a little 
+TPNS_0020_CHOICE3;einigermaßen;moderately 
+TPNS_0020_CHOICE4;erheblich;quite a bit 
+TPNS_0020_CHOICE5;äußerst;extremely
+TPNS_0020_PROMPT;durcheinander;jittery
+TPNS_0021_CHOICE1;gar nicht;not at all 
+TPNS_0021_CHOICE2;ein bisschen;a little 
+TPNS_0021_CHOICE3;einigermaßen;moderately 
+TPNS_0021_CHOICE4;erheblich;quite a bit 
+TPNS_0021_CHOICE5;äußerst;extremely
+TPNS_0021_PROMPT;ängstlich;afraid

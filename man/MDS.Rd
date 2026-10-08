@@ -15,7 +15,7 @@ MDS(
 \item{label}{(Character scalar) Three uppercase letter acronym of the questionnaire.
 This is also the label given to the results in the output file.}
 
-\item{target}{(Character scalar or named character vector) The main target (style, artist...) for the questionnaire, if different values for different lanugages are needed then it should be a named vector with the names according to language columns in the dict.}
+\item{target}{(Character scalar or named character vector) The main target (style, artist...) for the questionnaire, if different values for different languages are needed then it should be a named vector with the names according to language columns in the dict.}
 
 \item{dict}{(i18n_dict) The psyquest dictionary used for internationalisation.}
 

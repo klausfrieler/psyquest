@@ -30,11 +30,18 @@ SES <- function(label = "SES",
                       subscales = subscales),
     subscales = subscales,
     offset = 1,
-    arrange_vertically = TRUE
+    arrange_vertically = TRUE,
+    dict = dict
   )
 }
 
-main_test_ses <- function(questionnaire_id, label, items, subscales = c(), offset = 1, arrange_vertically = TRUE) {
+main_test_ses <- function(questionnaire_id,
+                          label,
+                          items,
+                          subscales = c(),
+                          offset = 1,
+                          arrange_vertically = TRUE,
+                          dict) {
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
   elts <- c()
@@ -55,7 +62,7 @@ main_test_ses <- function(questionnaire_id, label, items, subscales = c(), offse
         trigger_button_text = psychTestR::i18n("CONTINUE"),
         failed_validation_message = psychTestR::i18n("CHOOSE_ANSWER"))
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -75,7 +82,7 @@ main_test_ses <- function(questionnaire_id, label, items, subscales = c(), offse
         trigger_button_text = psychTestR::i18n("CONTINUE"),
         failed_validation_message = psychTestR::i18n("CHOOSE_ANSWER"))
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -94,7 +101,7 @@ main_test_ses <- function(questionnaire_id, label, items, subscales = c(), offse
                    set_local("branch", answer, state)
         }
       )),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -120,7 +127,7 @@ main_test_ses <- function(questionnaire_id, label, items, subscales = c(), offse
             trigger_button_text = psychTestR::i18n("CONTINUE"),
             failed_validation_message = psychTestR::i18n("CHOOSE_ANSWER"))
       )),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -141,7 +148,7 @@ main_test_ses <- function(questionnaire_id, label, items, subscales = c(), offse
         trigger_button_text = psychTestR::i18n("CONTINUE"),
         failed_validation_message = psychTestR::i18n("CHOOSE_ANSWER"))
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 

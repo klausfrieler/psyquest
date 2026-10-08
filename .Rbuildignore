@@ -9,3 +9,5 @@ output
 
 DEVELOPMENT.md
 TODO.md
+^\.positai$
+^\.claude$

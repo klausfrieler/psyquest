@@ -28,7 +28,8 @@ EWE <- function(label = "EWE",
     subscales = subscales,
     language = language,
     offset = 1,
-    arrange_vertically = TRUE
+    arrange_vertically = TRUE,
+    dict = dict
   )
 }
 
@@ -42,7 +43,14 @@ validate_text <- function(answer, ...){
     }
 }
 
-main_test_ewe <- function(questionnaire_id, label, items, subscales, language, offset = 1, arrange_vertically = TRUE) {
+main_test_ewe <- function(questionnaire_id,
+                          label,
+                          items,
+                          subscales,
+                          language,
+                          offset = 1,
+                          arrange_vertically = TRUE,
+                          dict) {
   prompt_id <- NULL
   prompt_ids <- items %>% pull(prompt_id)
   elts <- c()
@@ -54,7 +62,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                       validate = NULL
                       )
 ,
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -67,7 +75,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                 arrange_vertically = TRUE,
                 button_style = "min-width: 200px"
       ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -79,7 +87,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                 labels = map(sprintf("TEWE_0003_CHOICE%d", 1:2), psychTestR::i18n),
                 button_style = "min-width: 100px"
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -91,7 +99,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                 labels = map(sprintf("TEWE_0004_CHOICE%d", 1:5), psychTestR::i18n),
                 button_style = "min-width: 250px;"
     ),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
 
@@ -103,7 +111,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                 labels = map(sprintf("TEWE_0005_CHOICE%d", 1:5), psychTestR::i18n),
                 button_style = "min-width: 250px;"
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -116,7 +124,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                     trigger_button_text = psychTestR::i18n("CONTINUE"),
                     force_answer = TRUE,
                     failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-      dict = psyquest::psyquest_dict
+      dict = dict
 
     ))}
   if ("TEWE_0007" %in% prompt_ids) {
@@ -127,7 +135,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                             labels = map(sprintf("TEWE_0007_CHOICE%d", 1:7), psychTestR::i18n),
                             trigger_button_text = psychTestR::i18n("CONTINUE")
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
 
@@ -139,7 +147,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                             labels = map(sprintf("TEWE_0008_CHOICE%d", 1:6), psychTestR::i18n),
                             trigger_button_text = psychTestR::i18n("CONTINUE")
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
   if ("TEWE_0009" %in% prompt_ids) {
@@ -150,7 +158,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                             labels = map(sprintf("TEWE_0009_CHOICE%d", 1:3), psychTestR::i18n),
                             trigger_button_text = psychTestR::i18n("CONTINUE")
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
   if ("TEWE_0010" %in% prompt_ids) {
@@ -161,7 +169,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                 labels = map(sprintf("TEWE_0010_CHOICE%d", 1:4), psychTestR::i18n),
                 button_style = "min-width: 250px"
       ),
-      dict = psyquest::psyquest_dict
+      dict = dict
     ))
   }
   if ("TEWE_0011" %in% prompt_ids) {
@@ -173,7 +181,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                     trigger_button_text = psychTestR::i18n("CONTINUE"),
                     force_answer = TRUE,
                     failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-      dict = psyquest::psyquest_dict
+      dict = dict
 
     ))}
 
@@ -184,7 +192,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                             choices = sprintf("%d", 1:3),
                             labels = map(sprintf("TEWE_0012_CHOICE%d", 1:3), psychTestR::i18n),
                             trigger_button_text = psychTestR::i18n("CONTINUE")),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
   if ("TEWE_0013" %in% prompt_ids) {
@@ -194,7 +202,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                 choices = sprintf("%d", 1:5),
                 labels = map(sprintf("TEWE_0013_CHOICE%d", 1:5), psychTestR::i18n),
                 button_style = "min-width: 250px;"),
-    dict = psyquest::psyquest_dict
+    dict = dict
     ))
   }
   if ("TEWE_0014" %in% prompt_ids) {
@@ -206,7 +214,7 @@ main_test_ewe <- function(questionnaire_id, label, items, subscales, language, o
                     force_answer = TRUE,
                     trigger_button_text = psychTestR::i18n("CONTINUE"),
                     failed_validation_message = psychTestR::i18n("CHOOSE_AT_LEAST_ONE_ANSWER")),
-      dict = psyquest::psyquest_dict
+      dict = dict
 
     ))}
   psychTestR::join(psychTestR::begin_module(label),

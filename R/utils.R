@@ -26,6 +26,27 @@ get_month <- function(date) {
   as.numeric(strsplit(as.character(date), "-")[[1]][2])
 }
 
+thumb_scale <- function(num_elements = 5,
+                        labels = c("👎", "🤷", "👍")){
+  has_middle <- num_elements %% 2 == 1
+  num_thumbs <- floor(num_elements/2)
+  range <- c(seq(-num_thumbs,-1), if(has_middle) 0 , seq(1, num_thumbs))
+  thumb_labels <- c()
+  for(i in 1:num_elements){
+    pos <- range[i]
+    if(pos < 0){
+      thumb_labels <- c(thumb_labels, paste(rep(labels[1], abs(range[i])), collapse = ""))
+    }
+    if(pos > 0){
+      thumb_labels <- c(thumb_labels, paste(rep(labels[3], abs(range[i])), collapse = ""))
+    }
+    if(pos == 0){
+      thumb_labels <- c(thumb_labels, labels[2])
+    }
+
+  }
+  thumb_labels
+}
 #'get_tests
 #'
 #'Retrieves all available tests
@@ -58,14 +79,16 @@ get_subscales <- function(questionnaire_id){
 #' @param language (character)  language of item texts
 #'
 #' @export
-get_item_info <- function(questionnaire_id, subscales, language = "en"){
+get_item_info <- function(questionnaire_id,
+                          subscales = c(),
+                          language = "en"){
   items <- get_items(questionnaire_id, subscales) %>%
     mutate(polarity = c("positive", "negative")[1 + stringr::str_detect(score_func, "-x|-\\(x")],
            prompt_id = stringr::str_extract(prompt_id, "[0-9]+$"),
            num_options = stringr::str_extract(option_type, "^[0-9]+")) %>%
     select(q_id, item_id, prompt_id, polarity, subscales, num_options)
   #browser()
-  prompts <- psyquest::psyquest_dict %>%
+  prompts <- psyquest::psyquest_dict_df %>%
     as.data.frame() %>%
     filter(stringr::str_detect(key, questionnaire_id)) %>%
     filter((key %in% sprintf("T%s_%s_PROMPT", questionnaire_id, items$prompt_id))) %>%
@@ -88,7 +111,7 @@ get_item_choices <- function(questionnaire_id, item_id, language = "en"){
     filter(stringr::str_detect(key, sstr))
   if(length(language) == 1){
     if(nrow(choices) > 0){
-      choices %>% pull(!!sym(language))
+      choices %>% pull(!!dplyr::sym(language))
     }
     else{
       character(0)
@@ -96,7 +119,7 @@ get_item_choices <- function(questionnaire_id, item_id, language = "en"){
   }
   else{
     if(nrow(choices) > 0){
-      choices %>% select(key, all_of(language))
+      choices %>% select(key, dplyr::all_of(language))
     }
     else{
       choices
@@ -293,6 +316,10 @@ get_items <- function(q_id, subscales = c(), short_version = FALSE, configuratio
     }
     else if (q_id == "SCS") {
       question_ids <- c(3, 5, 6, 10, 11, 17, 18, 22) - 1
+    }
+    else if (q_id == "PAC") {
+      browser()
+      question_ids <- c(11:16)
     }
     else if (q_id == "PHT") {
       #question_ids <- c(1, 4, 7, 11, 15, 20, 23, 27, 29, 32, 37, 39, 41, 46, 48, 53, 55)
