@@ -72,6 +72,8 @@ export(PHT)
 export(PHT_standalone)
 export(PMS)
 export(PMS_standalone)
+export(PNS)
+export(PNS_standalone)
 export(QHC)
 export(QHC_standalone)
 export(SCA)
@@ -109,29 +111,37 @@ export(make_ui_month_and_year_select)
 export(month_and_year_select_page)
 export(standalone)
 importFrom(R.utils,"insert")
-importFrom(dplyr,"%>%")
-importFrom(dplyr,"arrange")
-importFrom(dplyr,"filter")
-importFrom(dplyr,"mutate")
-importFrom(dplyr,"pull")
-importFrom(dplyr,"select")
+importFrom(dplyr,
+  "%>%",
+  "arrange",
+  "filter",
+  "mutate",
+  "pull",
+  "select"
+)
 importFrom(methods,"is")
-importFrom(psychTestR,"NAFC_page")
-importFrom(psychTestR,"checkbox_page")
-importFrom(psychTestR,"conditional")
-importFrom(psychTestR,"dropdown_page")
-importFrom(psychTestR,"get_local")
-importFrom(psychTestR,"page")
-importFrom(psychTestR,"radiobutton_NAFC_page")
-importFrom(psychTestR,"set_local")
-importFrom(psychTestR,"text_input_page")
-importFrom(purrr,"is_scalar_character")
-importFrom(purrr,"is_scalar_double")
-importFrom(purrr,"is_scalar_integer")
-importFrom(purrr,"map")
-importFrom(purrr,"map_chr")
-importFrom(purrr,"map_dbl")
+importFrom(psychTestR,
+  "NAFC_page",
+  "checkbox_page",
+  "conditional",
+  "dropdown_page",
+  "get_local",
+  "page",
+  "radiobutton_NAFC_page",
+  "set_local",
+  "text_input_page"
+)
+importFrom(purrr,
+  "is_scalar_character",
+  "is_scalar_double",
+  "is_scalar_integer",
+  "map",
+  "map_chr",
+  "map_dbl"
+)
 importFrom(stats,"setNames")
 importFrom(tibble,"tibble")
-importFrom(utils,"read.csv")
-importFrom(utils,"read.delim")
+importFrom(utils,
+  "read.csv",
+  "read.delim"
+)

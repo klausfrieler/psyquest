@@ -4,9 +4,12 @@ psyquest_dict_raw <-
   map_dfr(list.files("./data_raw/dicts/",  full.names = TRUE), function(filepath) {
     #dict file must be UTF8 encoded!
     print(filepath)
-    # if(str_detect(filepath, "CBQ")){
-    #   browser()
-    # }
+     if(str_detect(filepath, "BMR")){
+       #browser()
+     }
+    if(str_detect(filepath, "dummy_debug")){
+      return(NULL)
+    }
     #tmp <- read.table(filepath, sep = ";", stringsAsFactors = FALSE, header = TRUE, fileEncoding = "utf8")
     tmp <- readr::read_csv2(filepath, col_types = cols())
     #browser()
@@ -32,7 +35,7 @@ psyquest_dict_raw <-
     }
 
     tmp %>% filter(nchar(de) != 0, nchar(en) != 0)
-  })
+  }) %>% distinct()
 
 psyquest_dict <- psychTestR::i18n_dict$new(psyquest_dict_raw)
 psyquest_dict_df <- psyquest_dict %>% as.data.frame()

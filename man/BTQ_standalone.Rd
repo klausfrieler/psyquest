@@ -9,7 +9,7 @@ BTQ_standalone(languages = psyquest::languages(), ...)
 \arguments{
 \item{languages}{(Character vector)
 Determines the languages available to participants.
-Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_d"} (formal German).
+Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_f"} (formal German).
 The first language is selected by default.}
 
 \item{...}{Further arguments to be passed to \code{\link{standalone}()}.}

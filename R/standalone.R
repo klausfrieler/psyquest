@@ -1,7 +1,7 @@
 #' Standalone
 #'
 #' This function launches a standalone testing session for a questionnaire with the specified label.
-#' Valid labels are 'BMR', 'BFT'. 'CBQ', CCM', 'DAC', 'DEG', 'GDS', 'GMS', 'GRT', 'HOP', 'HUM', 'HSP', 'IBQ', MES', 'MES', 'MHE', 'MHI', 'MHP', 'PAC', 'PMS'
+#' Valid labels are 'BMR', 'BFT'. 'CBQ', CCM', 'DAC', 'DEG', 'GDS', 'GMS', 'GRT', 'HOP', 'HUM', 'HSP', 'IBQ', MES', 'MES', 'MHE', 'MHI', 'MHP', 'PAC', 'PMS', 'PNS',
 #' 'SDQ', 'SEM', 'SES','SMP', 'SOS', 'SWL', TOI', 'TOM', and 'TPI'.
 #' This can be used for data collection, either in the laboratory or online.
 #'
@@ -132,7 +132,7 @@ CBQ_standalone <-
 #'
 #' @param languages (Character vector)
 #' Determines the languages available to participants.
-#' Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_d"} (formal German).
+#' Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_f"} (formal German).
 #' The first language is selected by default.
 #'
 #' @param ... Further arguments to be passed to \code{\link{standalone}()}.
@@ -166,7 +166,7 @@ BMR_standalone <-
 #'
 #' @param languages (Character vector)
 #' Determines the languages available to participants.
-#' Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_d"} (formal German).
+#' Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_f"} (formal German).
 #' The first language is selected by default.
 #'
 #' @param ... Further arguments to be passed to \code{\link{standalone}()}.
@@ -874,6 +874,24 @@ PHT_standalone <-
 PMS_standalone <-
   function(languages = psyquest::languages(), ...)
     standalone(label = "PMS", languages = languages, ...)
+
+#' PNS Standalone
+#'
+#' This function launches a standalone testing session for the BFT questionnaire.
+#' PNS stands for 'Positive and Negative Affect Schedule'.
+#'
+#' @param languages (Character vector)
+#' Determines the languages available to participants.
+#' Possible languages include \code{"en"} (English), \code{"de"} (German) and \code{"de_f"} (formal German).
+#' The first language is selected by default.
+#'
+#' @param ... Further arguments to be passed to \code{\link{standalone}()}.
+#'
+#' @export
+PNS_standalone <-
+  function(languages = psyquest::languages(), ...)
+    standalone(label = "PNS", languages = languages, ...)
+
 
 #' QHC Standalone
 #'
