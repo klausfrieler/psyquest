@@ -1,6 +1,6 @@
 key;de;en
 TPNS_0000_PROMPT;Positiver und Negativer Affekt Fragebogen (PANAS);Positive and Negative Affect Schedule (PANAS)
-TPNS_0001_PROMPT;"Nun möchten wir gerne von Ihnen wissen, wie Sie sich fühlen. Die folgenden Wörter beschreiben unterschiedliche Gefühle und Empfindungen. Lesen Sie jedes Wort und wählen Sie die Intensität. Sie haben die Möglichkeit, zwischen fünf Abstufungen zu wählen. Geben Sie bitte an, wie Sie sich im Allgemeinen fühlen.";"Now we would like to know how you feel. The following words describe different kinds of feelings and perception. Read every word and select the intensity by pressing the appropiate button. You have the choice between five gradations. Please indicate how you generally feel."
+TPNS_0001_PROMPT;"Nun möchten wir gerne von Ihnen wissen, wie Sie sich fühlen. Die folgenden Wörter beschreiben unterschiedliche Gefühle und Empfindungen. Lesen Sie jedes Wort und wählen Sie die Intensität. Sie haben die Möglichkeit, zwischen fünf Abstufungen zu wählen. Geben Sie bitte an, wie Sie sich **gerade fühlen**.";"Now we would like to know how you feel. The following words describe different kinds of feelings and perception. Read every word and select the intensity by pressing the appropiate button. You have the choice between five gradations. Please indicate how you **feel right now**."
 TPNS_0002_CHOICE1;gar nicht;not at all 
 TPNS_0002_CHOICE2;ein bisschen;a little 
 TPNS_0002_CHOICE3;einigermaßen;moderately 
