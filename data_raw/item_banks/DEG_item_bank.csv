@@ -43,3 +43,5 @@
 "TDEG_0021";"en";"6-option multiple choice";"function(x) x";"Vocational Qualification";"vertical"
 "TDEG_0022";"de";"2-option multiple choice";"function(x) x";"Born Here";"horizontal"
 "TDEG_0022";"en";"2-option multiple choice";"function(x) x";"Born Here";"horizontal"
+"TDEG_0023";"de";"9-option multiple choice";"function(x) 10 - x";"City Size";"horizontal"
+"TDEG_0023";"en";"9-option multiple choice";"function(x) 10 - x";"City Size";"horizontal"

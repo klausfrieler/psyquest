@@ -164,8 +164,9 @@ postprocess <- function(questionnaire_id, label, subscale_list, short_version, s
     } else {
       mean(scores)
     }
+
     message(sprintf("Subscale: %s, value: %s", subscale, ifelse(length(value) == 1,
-                                                                value,
+                                                                as.character(value),
                                                                 paste(value, collapse = ";"))))
     psychTestR::save_result(place = state,
                             label = subscale,

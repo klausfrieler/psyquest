@@ -15,8 +15,12 @@ psyquest_dict_raw <-
     #browser()
     if(nrow(problems(tmp)) > 0){
       browser()
-    print(problems(tmp))
+      print(problems(tmp))
     }
+    if(str_detect(filepath, "zzz")){
+      tmp <- tmp %>% filter(!key %in% c("OTHER_COUNTRY", "OTHER_LANGUAGE", "OTHER_NATIONALITY"))
+    }
+
     if(!("de" %in% names(tmp))){
       tmp <- tmp  %>% mutate(de = en)
     }

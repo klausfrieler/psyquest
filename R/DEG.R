@@ -413,6 +413,20 @@ main_test_deg <- function(questionnaire_id,
     dict = psyquest::psyquest_dict
     ))
   }
+  if ("TDEG_0023" %in% prompt_ids) {
+    elts <- psychTestR::join(elts, psychTestR::new_timeline(c(
+      NAFC_page("q23",
+                psychTestR::i18n("TDEG_0023_PROMPT"),
+                sprintf("btn%d_text", 1:9),
+                labels = map(sprintf("TDEG_0023_CHOICE%d", 1:9), psychTestR::i18n),
+                arrange_vertically = TRUE,
+                button_style = "min-width: 200px",
+                on_complete = NULL
+      )
+    ),
+    dict = psyquest::psyquest_dict
+    ))
+  }
 
   psychTestR::join(psychTestR::begin_module(label),
                    elts,
@@ -475,6 +489,9 @@ postprocess_deg <- function(label, subscale, results, scores) {
   } else if (subscale == "Vocational Qualification") {
     choices <- get_item_choices("DEG", 21)
     choices[as.integer(stringr::str_extract(results[[label]][["q21"]], "[0-9]+"))]
+  } else if (subscale == "City Size") {
+    choices <- get_item_choices("DEG", 23) %>%  stringr::str_replace("&lt;", "<") %>% stringr::str_replace("&gt;", ">")
+    choices[as.integer(stringr::str_extract(results[[label]][["q23"]], "[0-9]+"))] %>% factor(levels = choices)
   } else if (subscale == "Music Proficiency") {
     7 - as.integer(stringr::str_extract(results[[label]][["q18"]], "[0-9]+"))
   } else if (subscale == "Handedness") {
