@@ -13,16 +13,23 @@
 #' @param ... Further arguments to be passed to \code{\link{CMA}()}.
 #' @export
 CMA <- function(label = "CMA",
+                subscales = c(),
                 dict = psyquest::psyquest_dict,
                 ...) {
   stopifnot(purrr::is_scalar_character(label))
 
   questionnaire_id <- "CMA"
 
+
+  if(is.null(subscales) || length(subscales) == 0){
+    subscales <- get_subscales("CMA")
+  }
+
+
   main_test(
     questionnaire_id = questionnaire_id,
     label = label,
-    items = get_items(questionnaire_id),
+    items = get_items(questionnaire_id, subscales = subscales),
     offset = 0,
     arrange_vertically = TRUE,
     button_style = "min-width: 290px",

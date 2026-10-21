@@ -277,8 +277,8 @@ CHD_standalone <-
 #'
 #' @export
 CMA_standalone <-
-  function(languages = psyquest::languages(), ...)
-    standalone(label = "CMA", languages = languages, ...)
+  function(languages = psyquest::languages(), subscales = NULL, ...)
+    standalone(label = "CMA", languages = languages, subscales = subscales, ...)
 
 
 #' CMI Standalone
