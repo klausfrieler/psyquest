@@ -45,3 +45,5 @@
 "TDEG_0022";"en";"2-option multiple choice";"function(x) x";"Born Here";"horizontal"
 "TDEG_0023";"de";"9-option multiple choice";"function(x) 10 - x";"City Size";"horizontal"
 "TDEG_0023";"en";"9-option multiple choice";"function(x) 10 - x";"City Size";"horizontal"
+"TDEG_0024";"de";"7-option multiple choice";"function(x) x";"City Size2";"horizontal"
+"TDEG_0024";"en";"7-option multiple choice";"function(x) x";"City Size2";"horizontal"

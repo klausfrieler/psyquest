@@ -91,3 +91,11 @@ TDEG_0023_CHOICE7;1.000–3.500;1.000–3.500;"1,000–3,500";1.000–3.500;1.00
 TDEG_0023_CHOICE8;400–1.000;400–1.000;"400–1,000";400–1.000;400–1.000;400–1 000;400–1 000
 TDEG_0023_CHOICE9;"<&nbsp;400";"<&nbsp;400";"<&nbsp;400";"<&nbsp;400";"<&nbsp;400";"<&nbsp;400";"<&nbsp;400"
 TDEG_0023_PROMPT;Wie viele Einwohner hat dein Wohnort?;Wie viele Einwohner hat Ihr Wohnort?;How many people live in the place where you live?;Quanti abitanti ha il suo comune di residenza?;¿Cuántos habitantes tiene tu localidad?;Cik iedzīvotāju ir jūsu dzīvesvietā?;Ilu mieszkańców liczy Twoja miejscowość?
+TDEG_0024_CHOICE1;"<&nbsp;500";"<&nbsp;500";"<&nbsp;500";"<&nbsp;500";"<&nbsp;500";"<&nbsp;500";"<&nbsp;500"
+TDEG_0024_CHOICE2;500–1.000;500–1.000;"500–1,000";500–1.000;500–1.000;500–1 000;500–1 000
+TDEG_0024_CHOICE3;1.000–5.000;1.000–5.000;"1,000–5,000";1.000–5.000;1.000–5.000;5 000–5 000;1 000–5 500
+TDEG_0024_CHOICE4;5.000–50.000;5.000–50.000;"5,000–50,000";5.000–50.000;5.000–50.000;5 000–50 000;5 000–50 000 
+TDEG_0024_CHOICE5;50.000–100.000;50.000–100.000;"50,000–100,000";50.000–100.000;50.000–100.000;50 000–100 000;50 000–100 000
+TDEG_0024_CHOICE6;100.000–500.000;100.000–500.000;"100,000–500,000";100.000–500.000;100.000–500.000;100 000–500 000;100 000–500 000
+TDEG_0024_CHOICE7;"&gt;&nbsp;500.000";"&gt;&nbsp;500.000";"&gt;&nbsp;500,000";"&gt;&nbsp;500.000";"&gt;&nbsp;500.000";"&gt;&nbsp;500 000";"&gt;&nbsp;500 000"
+TDEG_0024_PROMPT;Wie viele Einwohner hat dein Wohnort?;Wie viele Einwohner hat Ihr Wohnort?;How many people live in the place where you live?;Quanti abitanti ha il suo comune di residenza?;¿Cuántos habitantes tiene tu localidad?;Cik iedzīvotāju ir jūsu dzīvesvietā?;Ilu mieszkańców liczy Twoja miejscowość?
