@@ -1,0 +1,104 @@
+key;en;de;pl
+TCMA_0000_PROMPT;Past Experience with Listening to Classical Music Scale;Skala zu bisherigen Erfahrungen mit dem Hören klassischer Musik;Skala Doświadczeń ze Słuchaniem Muzyki Klasycznej w Przeszłości
+TCMA_0001_PROMPT;I listen to classical music with interest.;Ich höre mir gerne klassische Musik an.;Słucham muzyki klasycznej z zainteresowaniem.
+TCMA_0002_PROMPT;Classical music evokes my emotions.;Klassische Musik weckt Gefühle in mir.;Muzyka klasyczna wywołuje we mnie emocje.
+TCMA_0003_PROMPT;I like listening to classical music.;Ich höre gerne klassische Musik.;Lubię słuchać muzyki klasycznej.
+TCMA_0004_PROMPT;While listening to classical music I experience feelings.;Wenn ich klassische Musik höre, verspüre ich bestimmte Gefühle.;Podczas słuchania muzyki klasycznej doświadczam emocji.
+TCMA_0005_PROMPT;I have experienced feelings during listening to classical music in the past.;Ich habe in der Vergangenheit beim Hören klassischer Musik bestimmte Gefühle verspürt.;W przeszłości doświadczałem/am emocji podczas słuchania muzyki klasycznej.
+TCMA_0006_PROMPT;I get fully immersed when I listen to classical music.;Wenn ich klassische Musik höre, tauche ich völlig darin ein.;Całkowicie zatapiam się w muzyce, kiedy słucham muzyki klasycznej.
+TCMA_0007_PROMPT;Listening to classical music can make me sad.;Wenn ich klassische Musik höre, werde ich manchmal traurig.;Słuchanie muzyki klasycznej może wywołać we mnie smutek.
+TCMA_0008_PROMPT;Listening to classical music can make me happy.;Klassische Musik zu hören, kann mich glücklich machen.;Słuchanie muzyki klasycznej może wywołać we mnie radość.
+TCMA_0009_PROMPT;I listen to classical music in my free time.;In meiner Freizeit höre ich klassische Musik.;W wolnym czasie słucham muzyki klasycznej.
+TCMA_0010_PROMPT;I listen to classical music only at school.;Ich höre klassische Musik nur in der Schule.;Muzyki klasycznej słucham tylko w szkole.
+TCMA_0011_PROMPT;I got goosebumps while listening to classical music.;Beim Hören von  klassischer Musik, hab ich schon mal Gänsehaut bekommen.;Podczas słuchania muzyki klasycznej dostałem gęsiej skórki.
+TCMA_0012_PROMPT;Classical music can make me cry.;Klassische Musik kann mich zum Weinen bringen.;Muzyka klasyczna potrafi sprawić, że się wzruszam.
+TCMA_0013_PROMPT;Listening to classical music gives me pleasure.;Ich glaube, dass klassische Musik tiefe Gefühle in mir wecken kann.;Słuchanie muzyki klasycznej sprawia mi przyjemność.
+TCMA_0014_PROMPT;I believe that classical music can evoke deep emotions in me.;Klassische Musik kann mich zum Weinen bringen.;Uważam, że muzyka klasyczna potrafi wywołać we mnie głębokie emocje.
+TCMA_0015_PROMPT;I believe that classical music has a positive impact on concentration and well-being.;Ich bin der Meinung, dass klassische Musik sich positiv auf die Konzentrationsfähigkeit und das Wohlbefinden auswirkt.;Uważam, że muzyka klasyczna ma pozytywny wpływ na koncentrację i samopoczucie. 
+TCMA_0016_PROMPT;I believe that classical music can be enjoyed by anyone, no matter their education or background.;Ich bin der Meinung, dass jeder klassische Musik genießen kann, unabhängig von seiner Bildung oder seinem Hintergrund.;Uważam, że muzyką klasyczną mogą cieszyć się wszyscy, bez względu na wykształcenie i pochodzenie.
+TCMA_0017_PROMPT;I willingly participate in cultural events related to classical music.;Ich nehme gerne an kulturellen Veranstaltungen im Bereich der klassischen Musik teil.;Chętnie uczestniczę w wydarzeniach kulturalnych związanych z muzyką klasyczną.
+TCMA_0001_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0001_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0001_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0001_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0001_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0002_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0002_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0002_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0002_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0002_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0003_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0003_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0003_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0003_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0003_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0004_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0004_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0004_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0004_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0004_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0005_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0005_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0005_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0005_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0005_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0006_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0006_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0006_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0006_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0006_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0007_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0007_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0007_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0007_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0007_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0008_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0008_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0008_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0008_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0008_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0009_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0009_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0009_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0009_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0009_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0010_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0010_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0010_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0010_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0010_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0011_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0011_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0011_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0011_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0011_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0012_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0012_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0012_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0012_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0012_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0013_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0013_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0013_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0013_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0013_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0014_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0014_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0014_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0014_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0014_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0015_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0015_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0015_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0015_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0015_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0016_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0016_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0016_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0016_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0016_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się
+TCMA_0017_CHOICE1;Disagree strongly;Trifft überhaupt nicht zu;Zdecydowanie nie zgadzam się
+TCMA_0017_CHOICE2;Disagree a little;Trifft eher nicht zu;Raczej się nie zgadzam
+TCMA_0017_CHOICE3;Neither agree nor disagree;Weder noch;Trudno powiedzieć  
+TCMA_0017_CHOICE4;Agree a little;Eher zutreffend;Raczej zgadzam się
+TCMA_0017_CHOICE5;Agree strongly;Trifft voll und ganz zu;Zdecydowanie zgadzam się

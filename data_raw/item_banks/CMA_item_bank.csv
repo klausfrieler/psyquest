@@ -1,0 +1,35 @@
+main_id;language;template;score_func;subscales;layout 
+TCMA_0001;de;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0001;en;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0002;de;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0002;en;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0003;de;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0003;en;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0004;de;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0004;en;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0005;de;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0005;en;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0006;de;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0006;en;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0007;de;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0007;en;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0008;de;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0008;en;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0009;de;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0009;en;5-option multiple choice;function(x) x+0;General;Vertical
+TCMA_0010;de;5-option multiple choice;function(x) 6-x;General;Vertical
+TCMA_0010;en;5-option multiple choice;function(x) 6-x;General;Vertical
+TCMA_0011;de;5-option multiple choice;function(x) 6-x;General;Vertical
+TCMA_0011;en;5-option multiple choice;function(x) 6-x;General;Vertical
+TCMA_0012;de;5-option multiple choice;function(x) 6-x;General;Vertical
+TCMA_0012;en;5-option multiple choice;function(x) 6-x;General;Vertical
+TCMA_0013;de;5-option multiple choice;function(x) x+0;"Pleasure;Extra";Vertical
+TCMA_0013;en;5-option multiple choice;function(x) x+0;"Pleasure;Extra";Vertical
+TCMA_0014;de;5-option multiple choice;function(x) x+0;"Emotions;Extra";Vertical
+TCMA_0014;en;5-option multiple choice;function(x) x+0;"Emotions;Extra";Vertical
+TCMA_0015;de;5-option multiple choice;function(x) x+0;"Well-being;Extra";Vertical
+TCMA_0015;en;5-option multiple choice;function(x) x+0;"Well-being;Extra";Vertical
+TCMA_0016;de;5-option multiple choice;function(x) x+0;"Classic for All;Extra";Vertical
+TCMA_0016;en;5-option multiple choice;function(x) x+0;"Classic for All;Extra";Vertical
+TCMA_0017;de;5-option multiple choice;function(x) x+0;"Participation;Extra";Vertical
+TCMA_0017;en;5-option multiple choice;function(x) x+0;"Participation;Extra";Vertical
